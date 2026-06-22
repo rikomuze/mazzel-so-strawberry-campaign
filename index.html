@@ -228,20 +228,74 @@
     .todo-list { margin: 10px 0 0; padding-left: 18px; line-height: 1.75; color: rgba(255,255,255,.92); }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 
-    .save-card { position: relative; overflow: hidden; border-radius: 32px; padding: 22px; background: radial-gradient(circle at 78% 14%, rgba(255,91,134,.16), transparent 28%), radial-gradient(circle at 20% 0%, rgba(183,239,90,.09), transparent 22%), linear-gradient(180deg, #070807 0%, #121b15 58%, #1f070d 100%); border: 1px solid rgba(255,255,255,.11); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
-    .save-brand, .save-title, .save-sub, .save-photo, .save-summary, .save-footer { position: relative; z-index: 1; }
-    .save-brand { text-align: center; font-weight: 900; letter-spacing: .1em; margin-bottom: 8px; }
-    .save-title { text-align: center; font-size: clamp(2rem, 5vw, 3.6rem); font-style: italic; font-weight: 900; margin: 0; line-height: 1.02; }
-    .save-sub { text-align: center; margin: 10px 0 16px; color: rgba(255,255,255,.84); letter-spacing: .08em; font-weight: 800; text-transform: uppercase; }
-    .save-photo { aspect-ratio: 1500 / 1000; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.04); }
-    .save-summary { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .save-progress, .save-todo { border-radius: 23px; padding: 17px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); }
-    .save-progress .big { display: flex; gap: 8px; align-items: baseline; margin-bottom: 10px; }
-    .save-progress .big strong { font-size: 3rem; line-height: 1; }
-    .save-progress .big span { color: var(--muted); }
-    .save-todo h3 { margin: 0 0 10px; font-size: 1rem; }
+    .save-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 84% 12%, rgba(255,91,134,.34), transparent 25%),
+        radial-gradient(circle at 8% 8%, rgba(183,239,90,.16), transparent 24%),
+        radial-gradient(circle at 52% 112%, rgba(213,34,75,.34), transparent 34%),
+        linear-gradient(160deg, #070807 0%, #101d13 54%, #26060d 100%);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 22px 54px rgba(0,0,0,.34);
+    }
+    .save-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.1);
+      pointer-events: none;
+    }
+    .save-card::after {
+      content: "🍓";
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      font-size: 4.2rem;
+      opacity: .16;
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+    .save-brand, .save-title, .save-sub, .save-top, .save-summary, .save-footer { position: relative; z-index: 1; }
+    .save-brand { text-align: center; font-weight: 900; letter-spacing: .16em; margin-bottom: 8px; color: rgba(255,255,255,.88); }
+    .save-title { text-align: center; font-size: clamp(2.35rem, 7vw, 4.4rem); font-style: italic; font-weight: 900; margin: 0; line-height: .96; text-shadow: 0 10px 24px rgba(0,0,0,.38); }
+    .save-sub { text-align: center; margin: 10px 0 18px; color: #ecffd1; letter-spacing: .1em; font-weight: 900; text-transform: uppercase; }
+    .save-top { display: grid; grid-template-columns: .9fr 1.1fr; gap: 14px; align-items: stretch; margin-top: 16px; }
+    .save-score {
+      display: grid;
+      place-items: center;
+      min-height: 180px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .save-score-inner { text-align: center; }
+    .save-score strong { display: block; font-size: 4.6rem; line-height: .9; }
+    .save-score span { display: block; margin-top: 9px; color: rgba(255,255,255,.84); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .save-metrics { display: grid; gap: 10px; }
+    .save-metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-radius: 18px;
+      padding: 13px 14px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.11);
+      font-weight: 900;
+    }
+    .save-metric b { font-size: 1.25rem; color: #ecffd1; }
+    .save-summary { margin-top: 14px; display: grid; gap: 14px; }
+    .save-progress, .save-todo { border-radius: 24px; padding: 17px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.11); }
+    .save-progress .big { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; margin-bottom: 10px; }
+    .save-progress .big strong { font-size: 1.65rem; line-height: 1; }
+    .save-progress .big span { color: var(--muted); font-weight: 800; }
+    .save-todo h3 { margin: 0 0 10px; font-size: 1rem; letter-spacing: .05em; }
     .save-todo ul { margin: 0; padding-left: 18px; line-height: 1.7; min-height: 92px; }
-    .save-footer { margin-top: 14px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: .82rem; }
+    .save-footer { margin-top: 16px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: .82rem; font-weight: 800; }
     .hidden { display: none !important; }
 
     @media (max-width: 920px) { .grid, .save-summary { grid-template-columns: 1fr; } }
@@ -254,6 +308,9 @@
       .badge { display: inline-block; margin-top: 10px; }
       .stats { grid-template-columns: repeat(3, 1fr); }
       .btn-link, button { width: 100%; text-align: center; }
+      .save-top { grid-template-columns: 1fr; }
+      .save-score { min-height: 150px; }
+      .save-score strong { font-size: 4rem; }
     }
   </style>
 </head>
@@ -457,11 +514,25 @@
           <div class="save-brand">MAZZEL</div>
           <h2 class="save-title">So Strawberry</h2>
           <div class="save-sub">Campaign Checklist</div>
+
+          <div class="save-top">
+            <div class="save-score">
+              <div class="save-score-inner">
+                <strong id="save-rate">0%</strong>
+                <span>complete</span>
+              </div>
+            </div>
+            <div class="save-metrics">
+              <div class="save-metric"><span>完了</span><b><span id="save-done">0</span> / 31</b></div>
+              <div class="save-metric"><span>残り</span><b id="save-left">31</b></div>
+              <div class="save-metric"><span>対象</span><b>3 campaigns</b></div>
+            </div>
+          </div>
+
           <div class="save-summary">
             <div class="save-progress">
-              <div class="big"><strong id="save-done">0</strong><span>/ 23 complete</span></div>
+              <div class="big"><strong>Progress</strong><span>単曲DL・YouTube・Canvas</span></div>
               <div class="bar"><div class="bar-fill" id="save-bar-fill"></div></div>
-              <div>単曲DL・YouTubeコメント・Spotify Canvas</div>
             </div>
             <div class="save-todo">
               <h3>残りのやること</h3>
@@ -486,37 +557,37 @@
     ];
 
     const tasks = [
-      { id: "dl-buy", label: "単曲DL：ダウンロード購入した" },
-      { id: "dl-ss", label: "単曲DL：購入履歴のスクショを撮った" },
-      { id: "dl-entry", label: "単曲DL：応募した" },
-      { id: "yt-watch", label: "YouTube：MVを見た" },
-      { id: "yt-comment", label: "YouTube：タイム付きでコメントした" },
-      { id: "yt-ss", label: "YouTube：コメントのスクショを撮った" },
-      { id: "yt-entry", label: "YouTube：応募した" },
-      { id: "canvas-kairyu-share", label: "Canvas：KAIRYU シェア" },
-      { id: "canvas-kairyu-entry", label: "Canvas：KAIRYU 応募" },
-      { id: "canvas-kairyu-reward", label: "Canvas：KAIRYU 特典保存" },
-      { id: "canvas-naoya-share", label: "Canvas：NAOYA シェア" },
-      { id: "canvas-naoya-entry", label: "Canvas：NAOYA 応募" },
-      { id: "canvas-naoya-reward", label: "Canvas：NAOYA 特典保存" },
-      { id: "canvas-ran-share", label: "Canvas：RAN シェア" },
-      { id: "canvas-ran-entry", label: "Canvas：RAN 応募" },
-      { id: "canvas-ran-reward", label: "Canvas：RAN 特典保存" },
-      { id: "canvas-seito-share", label: "Canvas：SEITO シェア" },
-      { id: "canvas-seito-entry", label: "Canvas：SEITO 応募" },
-      { id: "canvas-seito-reward", label: "Canvas：SEITO 特典保存" },
-      { id: "canvas-ryuki-share", label: "Canvas：RYUKI シェア" },
-      { id: "canvas-ryuki-entry", label: "Canvas：RYUKI 応募" },
-      { id: "canvas-ryuki-reward", label: "Canvas：RYUKI 特典保存" },
-      { id: "canvas-takuto-share", label: "Canvas：TAKUTO シェア" },
-      { id: "canvas-takuto-entry", label: "Canvas：TAKUTO 応募" },
-      { id: "canvas-takuto-reward", label: "Canvas：TAKUTO 特典保存" },
-      { id: "canvas-hayato-share", label: "Canvas：HAYATO シェア" },
-      { id: "canvas-hayato-entry", label: "Canvas：HAYATO 応募" },
-      { id: "canvas-hayato-reward", label: "Canvas：HAYATO 特典保存" },
-      { id: "canvas-eiki-share", label: "Canvas：EIKI シェア" },
-      { id: "canvas-eiki-entry", label: "Canvas：EIKI 応募" },
-      { id: "canvas-eiki-reward", label: "Canvas：EIKI 特典保存" }
+      { id: "dl-buy", label: "単曲DL：ダウンロード購入する" },
+      { id: "dl-ss", label: "単曲DL：購入履歴のスクショを撮影する" },
+      { id: "dl-entry", label: "単曲DL：応募する" },
+      { id: "yt-watch", label: "YouTube：MVを見る" },
+      { id: "yt-comment", label: "YouTube：タイム付きでコメントする" },
+      { id: "yt-ss", label: "YouTube：コメントのスクショを撮影する" },
+      { id: "yt-entry", label: "YouTube：応募する" },
+      { id: "canvas-kairyu-share", label: "Canvas：KAIRYU シェアする" },
+      { id: "canvas-kairyu-entry", label: "Canvas：KAIRYU 応募する" },
+      { id: "canvas-kairyu-reward", label: "Canvas：KAIRYU 特典保存する" },
+      { id: "canvas-naoya-share", label: "Canvas：NAOYA シェアする" },
+      { id: "canvas-naoya-entry", label: "Canvas：NAOYA 応募する" },
+      { id: "canvas-naoya-reward", label: "Canvas：NAOYA 特典保存する" },
+      { id: "canvas-ran-share", label: "Canvas：RAN シェアする" },
+      { id: "canvas-ran-entry", label: "Canvas：RAN 応募する" },
+      { id: "canvas-ran-reward", label: "Canvas：RAN 特典保存する" },
+      { id: "canvas-seito-share", label: "Canvas：SEITO シェアする" },
+      { id: "canvas-seito-entry", label: "Canvas：SEITO 応募する" },
+      { id: "canvas-seito-reward", label: "Canvas：SEITO 特典保存する" },
+      { id: "canvas-ryuki-share", label: "Canvas：RYUKI シェアする" },
+      { id: "canvas-ryuki-entry", label: "Canvas：RYUKI 応募する" },
+      { id: "canvas-ryuki-reward", label: "Canvas：RYUKI 特典保存する" },
+      { id: "canvas-takuto-share", label: "Canvas：TAKUTO シェアする" },
+      { id: "canvas-takuto-entry", label: "Canvas：TAKUTO 応募する" },
+      { id: "canvas-takuto-reward", label: "Canvas：TAKUTO 特典保存する" },
+      { id: "canvas-hayato-share", label: "Canvas：HAYATO シェアする" },
+      { id: "canvas-hayato-entry", label: "Canvas：HAYATO 応募する" },
+      { id: "canvas-hayato-reward", label: "Canvas：HAYATO 特典保存する" },
+      { id: "canvas-eiki-share", label: "Canvas：EIKI シェアする" },
+      { id: "canvas-eiki-entry", label: "Canvas：EIKI 応募する" },
+      { id: "canvas-eiki-reward", label: "Canvas：EIKI 特典保存する" }
     ];
 
     const boxes = Array.from(document.querySelectorAll("[data-check]"));
@@ -528,6 +599,8 @@
     const barFill = document.getElementById("bar-fill");
     const todoList = document.getElementById("todo-list");
     const saveDone = document.getElementById("save-done");
+    const saveRate = document.getElementById("save-rate");
+    const saveLeft = document.getElementById("save-left");
     const saveBarFill = document.getElementById("save-bar-fill");
     const saveTodoList = document.getElementById("save-todo-list");
     const countdown = document.getElementById("countdown");
@@ -583,6 +656,8 @@
       statLeft.textContent = left;
       statRate.textContent = rate + "%";
       saveDone.textContent = done;
+      if (saveRate) saveRate.textContent = rate + "%";
+      if (saveLeft) saveLeft.textContent = left;
       barFill.style.width = rate + "%";
       saveBarFill.style.width = rate + "%";
       renderTodos(todoList, remaining);
@@ -653,7 +728,7 @@
         const fileName = "mazzel-so-strawberry-checklist.png";
         const file = new File([blob], fileName, { type: "image/png" });
 
-        // スマホでは共有シートを優先。X/Instagram内ブラウザでも保存しやすい挙動にする。
+        // スマホではいつもの共有シートを優先。X/Instagram内ブラウザでも保存しやすい挙動にする。
         if (isMobileDevice() && navigator.canShare && navigator.canShare({ files: [file] })) {
           await navigator.share({
             files: [file],
