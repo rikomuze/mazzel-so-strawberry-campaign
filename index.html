@@ -286,7 +286,7 @@
       <section class="panel" aria-labelledby="campaign-title">
         <div class="panel-inner">
           <h2 class="section-title" id="campaign-title">キャンペーン</h2>
-          <p class="section-note">チェックした項目はこの端末に保存される。公式の応募・参加条件は必ずリンク先で確認してね。</p>
+          <p class="section-note">チェックした項目はこの端末に保存されます。公式の応募・参加条件は必ずリンク先で確認してね。</p>
 
           <div class="campaign-stack">
             <article class="campaign-card">
@@ -415,11 +415,11 @@
           <p class="section-note">あとで見返せるように保存できます。</p>
 
           <div class="summary-box">
-            <div class="progress-number"><strong id="done-count">0</strong><span>/ <span id="total-count">31</span> 完了</span></div>
+            <div class="progress-number"><strong id="done-count">0</strong><span>/ <span id="total-count">23</span> 完了</span></div>
             <div class="bar" aria-hidden="true"><div class="bar-fill" id="bar-fill"></div></div>
             <div class="stats">
               <div class="stat"><strong id="stat-done">0</strong><span>完了</span></div>
-              <div class="stat"><strong id="stat-left">31</strong><span>残り</span></div>
+              <div class="stat"><strong id="stat-left">23</strong><span>残り</span></div>
               <div class="stat"><strong id="stat-rate">0%</strong><span>達成率</span></div>
             </div>
           </div>
@@ -441,7 +441,7 @@
           </div>
 
           <div class="actions">
-            <button class="primary" type="button" id="save-image">画像で保存</button>
+            <button class="primary" type="button" id="save-image">画像を保存 / 共有</button>
             <button class="ghost" type="button" id="reset-checks">チェックをリセット</button>
           </div>
         </div>
@@ -459,7 +459,7 @@
           <div class="save-sub">Campaign Checklist</div>
           <div class="save-summary">
             <div class="save-progress">
-              <div class="big"><strong id="save-done">0</strong><span>/ 31 complete</span></div>
+              <div class="big"><strong id="save-done">0</strong><span>/ 23 complete</span></div>
               <div class="bar"><div class="bar-fill" id="save-bar-fill"></div></div>
               <div>単曲DL・YouTubeコメント・Spotify Canvas</div>
             </div>
@@ -626,18 +626,67 @@
       updateProgress();
     });
 
-    document.getElementById("save-image").addEventListener("click", async () => {
-      const target = document.getElementById("capture-card");
-      const canvas = await html2canvas(target, { backgroundColor: null, scale: 2, useCORS: true });
-      canvas.toBlob(blob => {
+    function isMobileDevice() {
+      return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    }
+
+    function canvasToBlob(canvas) {
+      return new Promise(resolve => canvas.toBlob(resolve, "image/png", 1));
+    }
+
+    async function saveImageSmartphoneStyle() {
+      const button = document.getElementById("save-image");
+      const originalText = button.textContent;
+      button.disabled = true;
+      button.textContent = "画像を作成中…";
+
+      try {
+        const target = document.getElementById("capture-card");
+        const canvas = await html2canvas(target, {
+          backgroundColor: null,
+          scale: Math.min(2, window.devicePixelRatio || 2),
+          useCORS: true
+        });
+        const blob = await canvasToBlob(canvas);
+        if (!blob) throw new Error("画像の作成に失敗しました");
+
+        const fileName = "mazzel-so-strawberry-checklist.png";
+        const file = new File([blob], fileName, { type: "image/png" });
+
+        // スマホでは共有シートを優先。X/Instagram内ブラウザでも保存しやすい挙動にする。
+        if (isMobileDevice() && navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: "MAZZEL So Strawberry Campaign Checklist",
+            text: "So Strawberry キャンペーン進捗"
+          });
+          button.textContent = "共有しました";
+          return;
+        }
+
+        // PCや共有シート非対応ブラウザは通常ダウンロード。
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "mazzel-so-strawberry-checklist.png";
+        a.download = fileName;
+        document.body.appendChild(a);
         a.click();
-        URL.revokeObjectURL(url);
-      });
-    });
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        button.textContent = "保存しました";
+      } catch (error) {
+        console.error(error);
+        alert("画像保存がうまくいかない場合は、保存用カードをスクリーンショットしてください。");
+        button.textContent = originalText;
+      } finally {
+        setTimeout(() => {
+          button.disabled = false;
+          button.textContent = originalText;
+        }, 1200);
+      }
+    }
+
+    document.getElementById("save-image").addEventListener("click", saveImageSmartphoneStyle);
 
     init();
   </script>
