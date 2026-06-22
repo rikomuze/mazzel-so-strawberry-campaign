@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAZZEL So Strawberry Campaign Checklist</title>
+  <meta name="description" content="So Strawberryのキャンペーン進捗をチェック。" />
+  <meta property="og:title" content="MAZZEL So Strawberry Campaign Checklist" />
+  <meta property="og:description" content="So Strawberryのキャンペーン進捗をチェック。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MAZZEL So Strawberry Campaign Checklist" />
+  <meta name="twitter:description" content="So Strawberryのキャンペーン進捗をチェック。" />
+  <meta name="twitter:image" content="hero.jpg" />
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    :root {
+      --bg: #050706;
+      --green: #07130d;
+      --deep-red: #27060b;
+      --berry: #d5224b;
+      --berry-dark: #840a24;
+      --pink: #ff5b86;
+      --acid: #b7ef5a;
+      --cream: #fff7f1;
+      --card: #fff9fb;
+      --ink: #281018;
+      --muted: rgba(255,255,255,.78);
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 20px 52px rgba(0,0,0,.36);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Yu Gothic UI", "Segoe UI", sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at 50% -5%, rgba(183,239,90,.12) 0%, transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(255,91,134,.17) 0%, transparent 28%),
+        radial-gradient(circle at 10% 22%, rgba(213,34,75,.16) 0%, transparent 30%),
+        linear-gradient(180deg, #020302 0%, var(--green) 48%, var(--deep-red) 100%);
+      min-height: 100vh;
+      padding: 24px 16px 56px;
+    }
+
+    a { color: inherit; }
+    .wrap { max-width: 1120px; margin: 0 auto; }
+
+    .top-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 16px;
+    }
+
+    .top-links a {
+      text-decoration: none;
+      font-weight: 800;
+      font-size: .88rem;
+      letter-spacing: .03em;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 38px;
+      border: 1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(183,239,90,.08), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)),
+        linear-gradient(180deg, #090b09 0%, #101a13 62%, #21070d 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 72% 26%, rgba(255,91,134,.2), transparent 30%),
+        radial-gradient(circle at 18% 70%, rgba(183,239,90,.08), transparent 22%);
+      z-index: 0;
+    }
+
+    .hero-inner { position: relative; z-index: 1; padding: 28px 26px 26px; }
+    .brand { text-align: center; font-weight: 900; letter-spacing: .12em; color: rgba(255,255,255,.9); margin-bottom: 8px; }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(2.45rem, 7vw, 5.5rem);
+      line-height: .96;
+      font-style: italic;
+      font-weight: 900;
+      text-shadow: 0 8px 22px rgba(0,0,0,.45);
+    }
+
+    .sub {
+      margin: 12px 0 22px;
+      text-align: center;
+      color: rgba(255,255,255,.82);
+      letter-spacing: .08em;
+      font-weight: 700;
+      font-size: clamp(.96rem, 2vw, 1.25rem);
+      text-transform: uppercase;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 1500 / 1000;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 22px 44px rgba(0,0,0,.32);
+    }
+
+    .hero-photo img, .save-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .pill { border-radius: 999px; padding: 10px 15px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.9); font-size: .9rem; font-weight: 700; backdrop-filter: blur(8px); }
+    .pill.acid { color: #ecffd1; border-color: rgba(183,239,90,.28); }
+
+    .grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 22px; margin-top: 24px; }
+    .panel { border-radius: var(--radius-xl); background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.11); box-shadow: var(--shadow); backdrop-filter: blur(10px); overflow: hidden; }
+    .panel-inner { padding: 24px; }
+    .section-title { margin: 0 0 8px; font-size: 1.38rem; font-weight: 900; letter-spacing: .02em; }
+    .section-note { margin: 0 0 18px; color: var(--muted); line-height: 1.75; font-size: .95rem; }
+
+    .campaign-stack { display: grid; gap: 18px; }
+    .campaign-card { background: var(--card); color: var(--ink); border-radius: var(--radius-lg); padding: 20px; box-shadow: 0 14px 30px rgba(0,0,0,.22); border: 1px solid rgba(132,10,36,.08); }
+    .card-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+    .card-title { margin: 0; font-size: 1.14rem; line-height: 1.45; font-weight: 900; }
+    .badge { flex-shrink: 0; border-radius: 999px; padding: 7px 11px; font-size: .78rem; letter-spacing: .04em; font-weight: 900; color: #68071c; background: linear-gradient(90deg, rgba(213,34,75,.14), rgba(183,239,90,.2)); border: 1px solid rgba(183,239,90,.42); }
+    .badge.later { color: #455b13; background: #f3ffe4; border-color: #d8efb4; }
+
+    .card-meta { display: flex; flex-wrap: wrap; gap: 9px; margin: 0 0 14px; color: #754352; font-size: .86rem; font-weight: 700; }
+    .card-meta span { border-radius: 999px; padding: 7px 10px; background: #fff0f4; border: 1px solid #f4d7df; }
+    .about { margin: 0 0 14px; color: #5f3441; line-height: 1.7; font-size: .94rem; }
+
+    .mini-schedule { margin: 0 0 14px; padding: 12px 14px; border-radius: 16px; background: #f6ffe8; color: #4b6416; border: 1px solid #d8efb4; font-size: .88rem; line-height: 1.7; }
+    .mini-schedule strong { display: block; color: #31440a; margin-bottom: 4px; }
+
+    .canvas-members { display: grid; gap: 16px; }
+    .canvas-member { display: grid; gap: 10px; }
+    .canvas-member-title {
+      margin: 2px 0 2px;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: #4a1b23;
+      letter-spacing: .02em;
+    }
+    .check-item.reward label::before {
+      content: "★ ";
+      color: var(--berry);
+      font-weight: 900;
+    }
+
+    .checklist { display: grid; gap: 10px; }
+    .check-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 11px 12px;
+      border-radius: 15px;
+      background: #fff4f7;
+      border: 1px solid #f1d7df;
+      transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .check-item input { width: 18px; height: 18px; margin: 0; accent-color: var(--berry); cursor: pointer; flex-shrink: 0; }
+    .check-item label { flex: 1; cursor: pointer; line-height: 1.45; font-size: .95rem; font-weight: 800; }
+    .check-item .status-pill {
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      color: #8a4960;
+      background: #fff;
+      border: 1px solid #efd2da;
+      white-space: nowrap;
+    }
+    .check-item:has(input:checked) {
+      background: #f6ffe8;
+      border-color: #d8efb4;
+      box-shadow: 0 8px 18px rgba(92,125,22,.11);
+    }
+    .check-item:has(input:checked) label { color: #3e530f; text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: rgba(92,125,22,.28); }
+    .check-item:has(input:checked) .status-pill { color: #3f580f; background: #eef8dd; border-color: #cfe8a3; }
+
+    .link-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn-link, button { appearance: none; border: 0; border-radius: 999px; padding: 12px 17px; font-weight: 900; font-size: .93rem; cursor: pointer; text-decoration: none; transition: transform .15s ease, opacity .15s ease; }
+    .btn-link:hover, button:hover { transform: translateY(-1px); }
+    .primary { background: linear-gradient(90deg, var(--berry), var(--pink)); color: #fff; }
+    .secondary { background: #eef8dd; color: #425b10; border: 1px solid #cfe8a3; }
+    .ghost { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.15); }
+    .note-box { margin-top: 14px; padding: 13px 14px; border-radius: 17px; background: #fff7f9; color: #744351; border: 1px dashed #edccd6; line-height: 1.65; font-size: .9rem; }
+
+    .summary-box { padding: 18px; border-radius: 24px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); margin-bottom: 16px; }
+    .progress-number { display: flex; gap: 8px; align-items: baseline; margin-bottom: 10px; }
+    .progress-number strong { font-size: clamp(2.1rem, 6vw, 3.3rem); line-height: 1; }
+    .progress-number span { color: var(--muted); font-weight: 700; }
+    .bar { height: 12px; border-radius: 999px; background: rgba(255,255,255,.14); overflow: hidden; margin: 0 0 14px; }
+    .bar-fill { width: 0%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--berry), var(--pink), var(--acid)); transition: width .25s ease; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat { border-radius: 18px; padding: 13px 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); text-align: center; }
+    .stat strong { display: block; font-size: 1.45rem; margin-bottom: 3px; }
+    .stat span { color: var(--muted); font-size: .8rem; }
+
+    .deadline { padding: 16px; border-radius: 21px; background: rgba(213,34,75,.13); border: 1px solid rgba(255,255,255,.12); line-height: 1.65; margin: 16px 0; }
+    .deadline strong { display: block; margin-bottom: 4px; }
+    .deadline-list { margin: 10px 0 0; padding-left: 18px; color: rgba(255,255,255,.9); }
+    .todo-list { margin: 10px 0 0; padding-left: 18px; line-height: 1.75; color: rgba(255,255,255,.92); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+    .save-card { position: relative; overflow: hidden; border-radius: 32px; padding: 22px; background: radial-gradient(circle at 78% 14%, rgba(255,91,134,.16), transparent 28%), radial-gradient(circle at 20% 0%, rgba(183,239,90,.09), transparent 22%), linear-gradient(180deg, #070807 0%, #121b15 58%, #1f070d 100%); border: 1px solid rgba(255,255,255,.11); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
+    .save-brand, .save-title, .save-sub, .save-photo, .save-summary, .save-footer { position: relative; z-index: 1; }
+    .save-brand { text-align: center; font-weight: 900; letter-spacing: .1em; margin-bottom: 8px; }
+    .save-title { text-align: center; font-size: clamp(2rem, 5vw, 3.6rem); font-style: italic; font-weight: 900; margin: 0; line-height: 1.02; }
+    .save-sub { text-align: center; margin: 10px 0 16px; color: rgba(255,255,255,.84); letter-spacing: .08em; font-weight: 800; text-transform: uppercase; }
+    .save-photo { aspect-ratio: 1500 / 1000; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.04); }
+    .save-summary { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .save-progress, .save-todo { border-radius: 23px; padding: 17px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); }
+    .save-progress .big { display: flex; gap: 8px; align-items: baseline; margin-bottom: 10px; }
+    .save-progress .big strong { font-size: 3rem; line-height: 1; }
+    .save-progress .big span { color: var(--muted); }
+    .save-todo h3 { margin: 0 0 10px; font-size: 1rem; }
+    .save-todo ul { margin: 0; padding-left: 18px; line-height: 1.7; min-height: 92px; }
+    .save-footer { margin-top: 14px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: .82rem; }
+    .hidden { display: none !important; }
+
+    @media (max-width: 920px) { .grid, .save-summary { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      body { padding: 14px 10px 42px; }
+      .hero { border-radius: 30px; }
+      .hero-inner, .panel-inner, .save-card { padding-left: 16px; padding-right: 16px; }
+      .hero-photo, .save-photo { border-radius: 22px; }
+      .card-head { display: block; }
+      .badge { display: inline-block; margin-top: 10px; }
+      .stats { grid-template-columns: repeat(3, 1fr); }
+      .btn-link, button { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="top-links" aria-label="関連リンク">
+      <a href="https://www.universal-music.co.jp/mazzel/news/2026-06-22/" target="_blank" rel="noopener">公式ニュース</a>
+      <a href="https://form.universal-music.co.jp/dl_mazzel_sostrawberry/page/index.html" target="_blank" rel="noopener">単曲DL応募</a>
+      <a href="https://form.universal-music.co.jp/ytc_mazzel_sostrawberry/page/index.html" target="_blank" rel="noopener">YouTube応募</a>
+      <a href="https://form.universal-music.co.jp/sns_mazzel_sostrawberry/page/index.html" target="_blank" rel="noopener">Canvas応募</a>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="brand">MAZZEL</div>
+        <h1>So Strawberry</h1>
+        <p class="sub">Campaign Checklist</p>
+        <div class="hero-photo">
+          <img src="hero.jpg" alt="MAZZEL So Strawberry" />
+        </div>
+        <div class="hero-meta">
+          <span class="pill">Digital Single</span>
+          <span class="pill">2026.06.22 Release</span>
+          <span class="pill acid">3 Campaigns</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel" aria-labelledby="campaign-title">
+        <div class="panel-inner">
+          <h2 class="section-title" id="campaign-title">キャンペーン</h2>
+          <p class="section-note">チェックした項目はこの端末に保存される。公式の応募・参加条件は必ずリンク先で確認してね。</p>
+
+          <div class="campaign-stack">
+            <article class="campaign-card">
+              <div class="card-head">
+                <h3 class="card-title">単曲DLキャンペーン</h3>
+                <span class="badge">6/22 12:00〜</span>
+              </div>
+              <div class="card-meta">
+                <span>6/29(月)12:00まで</span>
+                <span>特典：ソロアザーカット</span>
+                <span>対象：iTunesほか</span>
+              </div>
+              <div class="checklist">
+                <div class="check-item"><input type="checkbox" id="dl-buy" data-check="dl-buy" /><label for="dl-buy">単曲をDL購入した</label><span class="status-pill">未着手</span></div>
+                <div class="check-item"><input type="checkbox" id="dl-ss" data-check="dl-ss" /><label for="dl-ss">購入履歴のスクショを撮った</label><span class="status-pill">未着手</span></div>
+                <div class="check-item"><input type="checkbox" id="dl-entry" data-check="dl-entry" /><label for="dl-entry">応募した</label><span class="status-pill">未着手</span></div>
+              </div>
+
+              <div class="link-buttons">
+                <a class="btn-link primary" href="https://form.universal-music.co.jp/dl_mazzel_sostrawberry/page/index.html" target="_blank" rel="noopener">応募する</a>
+                <a class="btn-link secondary" href="https://www.universal-music.co.jp/mazzel/news/2026-06-22/" target="_blank" rel="noopener">詳細</a>
+              </div>
+            </article>
+
+            <article class="campaign-card">
+              <div class="card-head">
+                <h3 class="card-title">YouTubeコメントキャンペーン</h3>
+                <span class="badge later">6/23 12:00〜</span>
+              </div>
+              <div class="card-meta">
+                <span>6/30(火)12:00まで</span>
+                <span>特典：集合アザーカット</span>
+                <span>対象：MVコメント</span>
+              </div>
+              <div class="checklist">
+                <div class="check-item"><input type="checkbox" id="yt-watch" data-check="yt-watch" /><label for="yt-watch">MVを見た</label><span class="status-pill">未着手</span></div>
+                <div class="check-item"><input type="checkbox" id="yt-comment" data-check="yt-comment" /><label for="yt-comment">タイム付きでコメントした</label><span class="status-pill">未着手</span></div>
+                <div class="check-item"><input type="checkbox" id="yt-ss" data-check="yt-ss" /><label for="yt-ss">コメントのスクショを撮った</label><span class="status-pill">未着手</span></div>
+                <div class="check-item"><input type="checkbox" id="yt-entry" data-check="yt-entry" /><label for="yt-entry">応募した</label><span class="status-pill">未着手</span></div>
+              </div>
+
+              <div class="link-buttons">
+                <a class="btn-link primary" href="https://form.universal-music.co.jp/ytc_mazzel_sostrawberry/page/index.html" target="_blank" rel="noopener">応募する</a>
+                <a class="btn-link secondary" href="https://www.universal-music.co.jp/mazzel/news/2026-06-22/" target="_blank" rel="noopener">詳細</a>
+              </div>
+            </article>
+
+            <article class="campaign-card">
+              <div class="card-head">
+                <h3 class="card-title">Spotify Canvasシェアキャンペーン</h3>
+                <span class="badge later">6/23 17:00〜</span>
+              </div>
+              <div class="card-meta">
+                <span>応募締切：7/2(木)18:00</span>
+                <span>特典：ソロ待受</span>
+                <span>8人分エントリーOK</span>
+              </div>
+              <div class="mini-schedule">
+                <strong>公開スケジュール</strong>
+                KAIRYU 6/23 ／ NAOYA 6/24 ／ RAN 6/25 ／ SEITO 6/26 ／ RYUKI 6/27 ／ TAKUTO 6/28 ／ HAYATO 6/29 ／ EIKI 6/30
+              </div>
+
+              <div class="checklist canvas-members">
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">KAIRYU（〜6/24 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-kairyu-share" data-check="canvas-kairyu-share" /><label for="canvas-kairyu-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-kairyu-entry" data-check="canvas-kairyu-entry" /><label for="canvas-kairyu-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-kairyu-reward" data-check="canvas-kairyu-reward" /><label for="canvas-kairyu-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">NAOYA（〜6/25 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-naoya-share" data-check="canvas-naoya-share" /><label for="canvas-naoya-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-naoya-entry" data-check="canvas-naoya-entry" /><label for="canvas-naoya-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-naoya-reward" data-check="canvas-naoya-reward" /><label for="canvas-naoya-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">RAN（〜6/26 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-ran-share" data-check="canvas-ran-share" /><label for="canvas-ran-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-ran-entry" data-check="canvas-ran-entry" /><label for="canvas-ran-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-ran-reward" data-check="canvas-ran-reward" /><label for="canvas-ran-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">SEITO（〜6/27 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-seito-share" data-check="canvas-seito-share" /><label for="canvas-seito-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-seito-entry" data-check="canvas-seito-entry" /><label for="canvas-seito-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-seito-reward" data-check="canvas-seito-reward" /><label for="canvas-seito-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">RYUKI（〜6/28 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-ryuki-share" data-check="canvas-ryuki-share" /><label for="canvas-ryuki-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-ryuki-entry" data-check="canvas-ryuki-entry" /><label for="canvas-ryuki-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-ryuki-reward" data-check="canvas-ryuki-reward" /><label for="canvas-ryuki-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">TAKUTO（〜6/29 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-takuto-share" data-check="canvas-takuto-share" /><label for="canvas-takuto-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-takuto-entry" data-check="canvas-takuto-entry" /><label for="canvas-takuto-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-takuto-reward" data-check="canvas-takuto-reward" /><label for="canvas-takuto-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">HAYATO（〜6/30 17:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-hayato-share" data-check="canvas-hayato-share" /><label for="canvas-hayato-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-hayato-entry" data-check="canvas-hayato-entry" /><label for="canvas-hayato-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-hayato-reward" data-check="canvas-hayato-reward" /><label for="canvas-hayato-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+                <div class="canvas-member">
+                  <h4 class="canvas-member-title">EIKI（〜7/2 18:00）</h4>
+                  <div class="check-item"><input type="checkbox" id="canvas-eiki-share" data-check="canvas-eiki-share" /><label for="canvas-eiki-share">シェア</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item"><input type="checkbox" id="canvas-eiki-entry" data-check="canvas-eiki-entry" /><label for="canvas-eiki-entry">応募</label><span class="status-pill">未着手</span></div>
+                  <div class="check-item reward"><input type="checkbox" id="canvas-eiki-reward" data-check="canvas-eiki-reward" /><label for="canvas-eiki-reward">特典保存</label><span class="status-pill">未着手</span></div>
+                </div>
+              </div>
+
+              <div class="link-buttons">
+                <a class="btn-link primary" href="https://form.universal-music.co.jp/sns_mazzel_sostrawberry/page/index.html" target="_blank" rel="noopener">応募する</a>
+                <a class="btn-link secondary" href="https://www.universal-music.co.jp/mazzel/news/2026-06-22/" target="_blank" rel="noopener">詳細</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-labelledby="progress-title">
+        <div class="panel-inner">
+          <h2 class="section-title" id="progress-title">進捗</h2>
+          <p class="section-note">あとで見返せるように保存できます。</p>
+
+          <div class="summary-box">
+            <div class="progress-number"><strong id="done-count">0</strong><span>/ <span id="total-count">31</span> 完了</span></div>
+            <div class="bar" aria-hidden="true"><div class="bar-fill" id="bar-fill"></div></div>
+            <div class="stats">
+              <div class="stat"><strong id="stat-done">0</strong><span>完了</span></div>
+              <div class="stat"><strong id="stat-left">31</strong><span>残り</span></div>
+              <div class="stat"><strong id="stat-rate">0%</strong><span>達成率</span></div>
+            </div>
+          </div>
+
+          <div class="deadline">
+            <strong>次の締切</strong>
+            <div id="next-deadline-label">締切を確認中…</div>
+            <div id="countdown">残り時間を計算中…</div>
+            <ul class="deadline-list">
+              <li>単曲DL：6/29(月)12:00まで</li>
+              <li>YouTubeコメント：6/30(火)12:00まで</li>
+              <li>Spotify Canvas：7/2(木)18:00まで</li>
+            </ul>
+          </div>
+
+          <div class="summary-box">
+            <strong>残りのやること</strong>
+            <ul class="todo-list" id="todo-list"></ul>
+          </div>
+
+          <div class="actions">
+            <button class="primary" type="button" id="save-image">画像で保存</button>
+            <button class="ghost" type="button" id="reset-checks">チェックをリセット</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <section class="panel" style="margin-top:22px;" aria-labelledby="save-title">
+      <div class="panel-inner">
+        <h2 class="section-title" id="save-title">保存用カード</h2>
+        <p class="section-note">今の進捗を画像で保存できます。</p>
+
+        <div class="save-card" id="capture-card">
+          <div class="save-brand">MAZZEL</div>
+          <h2 class="save-title">So Strawberry</h2>
+          <div class="save-sub">Campaign Checklist</div>
+          <div class="save-summary">
+            <div class="save-progress">
+              <div class="big"><strong id="save-done">0</strong><span>/ 31 complete</span></div>
+              <div class="bar"><div class="bar-fill" id="save-bar-fill"></div></div>
+              <div>単曲DL・YouTubeコメント・Spotify Canvas</div>
+            </div>
+            <div class="save-todo">
+              <h3>残りのやること</h3>
+              <ul id="save-todo-list"></ul>
+            </div>
+          </div>
+          <div class="save-footer">
+            <span>So Strawberry Campaign</span>
+            <span>saved on this device</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const STORAGE_KEY = "mazzel-so-strawberry-checks-v6";
+    const deadlines = [
+      { label: "単曲DL：6/29(月)12:00まで", date: new Date("2026-06-29T12:00:00+09:00") },
+      { label: "YouTubeコメント：6/30(火)12:00まで", date: new Date("2026-06-30T12:00:00+09:00") },
+      { label: "Spotify Canvas：7/2(木)18:00まで", date: new Date("2026-07-02T18:00:00+09:00") }
+    ];
+
+    const tasks = [
+      { id: "dl-buy", label: "単曲DL：ダウンロード購入した" },
+      { id: "dl-ss", label: "単曲DL：購入履歴のスクショを撮った" },
+      { id: "dl-entry", label: "単曲DL：応募した" },
+      { id: "yt-watch", label: "YouTube：MVを見た" },
+      { id: "yt-comment", label: "YouTube：タイム付きでコメントした" },
+      { id: "yt-ss", label: "YouTube：コメントのスクショを撮った" },
+      { id: "yt-entry", label: "YouTube：応募した" },
+      { id: "canvas-kairyu-share", label: "Canvas：KAIRYU シェア" },
+      { id: "canvas-kairyu-entry", label: "Canvas：KAIRYU 応募" },
+      { id: "canvas-kairyu-reward", label: "Canvas：KAIRYU 特典保存" },
+      { id: "canvas-naoya-share", label: "Canvas：NAOYA シェア" },
+      { id: "canvas-naoya-entry", label: "Canvas：NAOYA 応募" },
+      { id: "canvas-naoya-reward", label: "Canvas：NAOYA 特典保存" },
+      { id: "canvas-ran-share", label: "Canvas：RAN シェア" },
+      { id: "canvas-ran-entry", label: "Canvas：RAN 応募" },
+      { id: "canvas-ran-reward", label: "Canvas：RAN 特典保存" },
+      { id: "canvas-seito-share", label: "Canvas：SEITO シェア" },
+      { id: "canvas-seito-entry", label: "Canvas：SEITO 応募" },
+      { id: "canvas-seito-reward", label: "Canvas：SEITO 特典保存" },
+      { id: "canvas-ryuki-share", label: "Canvas：RYUKI シェア" },
+      { id: "canvas-ryuki-entry", label: "Canvas：RYUKI 応募" },
+      { id: "canvas-ryuki-reward", label: "Canvas：RYUKI 特典保存" },
+      { id: "canvas-takuto-share", label: "Canvas：TAKUTO シェア" },
+      { id: "canvas-takuto-entry", label: "Canvas：TAKUTO 応募" },
+      { id: "canvas-takuto-reward", label: "Canvas：TAKUTO 特典保存" },
+      { id: "canvas-hayato-share", label: "Canvas：HAYATO シェア" },
+      { id: "canvas-hayato-entry", label: "Canvas：HAYATO 応募" },
+      { id: "canvas-hayato-reward", label: "Canvas：HAYATO 特典保存" },
+      { id: "canvas-eiki-share", label: "Canvas：EIKI シェア" },
+      { id: "canvas-eiki-entry", label: "Canvas：EIKI 応募" },
+      { id: "canvas-eiki-reward", label: "Canvas：EIKI 特典保存" }
+    ];
+
+    const boxes = Array.from(document.querySelectorAll("[data-check]"));
+    const doneCount = document.getElementById("done-count");
+    const totalCount = document.getElementById("total-count");
+    const statDone = document.getElementById("stat-done");
+    const statLeft = document.getElementById("stat-left");
+    const statRate = document.getElementById("stat-rate");
+    const barFill = document.getElementById("bar-fill");
+    const todoList = document.getElementById("todo-list");
+    const saveDone = document.getElementById("save-done");
+    const saveBarFill = document.getElementById("save-bar-fill");
+    const saveTodoList = document.getElementById("save-todo-list");
+    const countdown = document.getElementById("countdown");
+    const nextDeadlineLabel = document.getElementById("next-deadline-label");
+
+    totalCount.textContent = tasks.length;
+
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch (e) { return {}; }
+    }
+
+    function saveState() {
+      const state = {};
+      boxes.forEach(box => { state[box.dataset.check] = box.checked; });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function renderTodos(listEl, remaining) {
+      listEl.innerHTML = "";
+      if (remaining.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "全部完了！";
+        listEl.appendChild(li);
+        return;
+      }
+      remaining.slice(0, 8).forEach(task => {
+        const li = document.createElement("li");
+        li.textContent = task.label;
+        listEl.appendChild(li);
+      });
+      if (remaining.length > 8) {
+        const li = document.createElement("li");
+        li.textContent = `ほか${remaining.length - 8}件`;
+        listEl.appendChild(li);
+      }
+    }
+
+    function updateProgress() {
+      const checkedIds = boxes.filter(box => box.checked).map(box => box.dataset.check);
+      const done = checkedIds.length;
+      const left = tasks.length - done;
+      const rate = Math.round((done / tasks.length) * 100);
+      const remaining = tasks.filter(task => !checkedIds.includes(task.id));
+
+      boxes.forEach(box => {
+        const status = box.closest(".check-item")?.querySelector(".status-pill");
+        if (status) status.textContent = box.checked ? "着手済み" : "未着手";
+      });
+
+      doneCount.textContent = done;
+      statDone.textContent = done;
+      statLeft.textContent = left;
+      statRate.textContent = rate + "%";
+      saveDone.textContent = done;
+      barFill.style.width = rate + "%";
+      saveBarFill.style.width = rate + "%";
+      renderTodos(todoList, remaining);
+      renderTodos(saveTodoList, remaining);
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const next = deadlines.find(item => item.date - now > 0);
+      if (!next) {
+        nextDeadlineLabel.textContent = "すべての締切を過ぎている可能性があります";
+        countdown.textContent = "最新情報は公式ページで確認してください。";
+        return;
+      }
+      nextDeadlineLabel.textContent = next.label;
+      const diff = next.date - now;
+      const totalMinutes = Math.floor(diff / 1000 / 60);
+      const days = Math.floor(totalMinutes / 60 / 24);
+      const hours = Math.floor((totalMinutes - days * 24 * 60) / 60);
+      const minutes = totalMinutes % 60;
+      countdown.textContent = `残り 約${days}日 ${hours}時間 ${minutes}分`;
+    }
+
+    function init() {
+      const state = loadState();
+      boxes.forEach(box => {
+        box.checked = !!state[box.dataset.check];
+        box.addEventListener("change", () => {
+          saveState();
+          updateProgress();
+        });
+      });
+      updateProgress();
+      updateCountdown();
+      setInterval(updateCountdown, 60 * 1000);
+    }
+
+    document.getElementById("reset-checks").addEventListener("click", () => {
+      boxes.forEach(box => { box.checked = false; });
+      saveState();
+      updateProgress();
+    });
+
+    document.getElementById("save-image").addEventListener("click", async () => {
+      const target = document.getElementById("capture-card");
+      const canvas = await html2canvas(target, { backgroundColor: null, scale: 2, useCORS: true });
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "mazzel-so-strawberry-checklist.png";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    });
+
+    init();
+  </script>
+</body>
+</html>
