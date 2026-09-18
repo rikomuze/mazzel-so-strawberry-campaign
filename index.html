@@ -2,528 +2,439 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MAZZEL「Touch」Digital Campaign Checklist</title>
-  <meta name="description" content="MAZZEL 5th Single「Touch」デジタルキャンペーンの応募進捗をまとめてチェック。" />
-  <meta property="og:title" content="MAZZEL「Touch」Digital Campaign Checklist" />
-  <meta property="og:description" content="Pre-add / Pre-save、iTunesプレオーダー、ダウンロード、Spotify Canvasの進捗をまとめてチェック。" />
+  <meta name="description" content="MAZZEL 5th Single『Touch』デジタルキャンペーンを、開催中・開始前・終了で自動整理するチェックリスト。" />
+  <meta property="og:title" content="MAZZEL『Touch』Digital Campaign Checklist" />
+  <meta property="og:description" content="Touchのデジタルキャンペーンを、今できることから順に確認。" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#dfe9f2" />
+  <meta property="og:image" content="hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MAZZEL『Touch』Digital Campaign Checklist" />
+  <meta name="twitter:description" content="Touchのデジタルキャンペーンを、今できることから順に確認。" />
+  <meta name="twitter:image" content="hero.jpg" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <style>
-    :root{
-      --bg:#eef3f6;
-      --paper:#fffdf9;
-      --ink:#26313a;
-      --muted:#6f7e89;
-      --line:#d7e0e6;
-      --blue:#7f9db4;
-      --blue-dark:#536f84;
-      --ice:#dceaf2;
-      --rose:#d8a7ad;
-      --rose-soft:#f3e4e5;
-      --sage:#a7b6a3;
-      --gold:#c4a56a;
-      --white:#fff;
-      --shadow:0 18px 50px rgba(57,77,91,.12);
-      --radius-xl:32px;
-      --radius-lg:22px;
-      --radius-md:15px;
+    :root {
+      --bg-0:#02050b;
+      --bg-1:#061426;
+      --bg-2:#0a2444;
+      --blue:#4fa9ff;
+      --cyan:#7bdcff;
+      --violet:#8d8cff;
+      --ice:#dff6ff;
+      --white:#ffffff;
+      --card:#f8fbff;
+      --ink:#0b1f37;
+      --ink-soft:#48657f;
+      --line:rgba(255,255,255,.14);
+      --glass:rgba(255,255,255,.07);
+      --shadow:0 22px 60px rgba(0,0,0,.34);
+      --radius-xl:34px;
+      --radius-lg:24px;
+      --radius-md:16px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      color:var(--ink);
-      background:
-        radial-gradient(circle at 12% 2%, rgba(216,167,173,.20), transparent 28%),
-        radial-gradient(circle at 92% 8%, rgba(127,157,180,.20), transparent 32%),
-        linear-gradient(180deg,#f6f8f8 0%,var(--bg) 48%,#e8eef2 100%);
-      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Yu Gothic UI","Segoe UI",sans-serif;
       min-height:100vh;
-      padding:18px 14px 70px;
+      padding:22px 16px 58px;
+      color:#fff;
+      font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Yu Gothic UI","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 22% -5%, rgba(90,183,255,.24), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(134,138,255,.18), transparent 31%),
+        radial-gradient(circle at 50% 52%, rgba(68,173,255,.08), transparent 40%),
+        linear-gradient(180deg,var(--bg-0) 0%,var(--bg-1) 48%,#071b32 72%,#020710 100%);
     }
     a{color:inherit}
     button,input{font:inherit}
     .wrap{max-width:1120px;margin:0 auto}
-    .topbar{
-      display:flex;justify-content:space-between;gap:12px;align-items:center;
-      margin:0 0 14px;padding:0 4px;color:var(--muted);font-size:.83rem;font-weight:700;
+
+    .top-links{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-bottom:14px}
+    .top-links a{
+      text-decoration:none;font-size:.85rem;font-weight:800;letter-spacing:.03em;
+      padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.075);
+      border:1px solid var(--line);backdrop-filter:blur(12px)
     }
-    .topbar a{text-decoration:none}
-    .topbar-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
     .hero{
-      position:relative;overflow:hidden;border-radius:40px;
-      background:rgba(255,253,249,.78);border:1px solid rgba(255,255,255,.9);
-      box-shadow:var(--shadow);padding:44px 34px 32px;
-      backdrop-filter:blur(16px);
+      overflow:hidden;border-radius:38px;border:1px solid rgba(255,255,255,.13);
+      background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+      box-shadow:var(--shadow);position:relative
     }
-    .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
-    .hero::before{width:340px;height:340px;right:-110px;top:-150px;background:rgba(127,157,180,.16)}
-    .hero::after{width:260px;height:260px;left:-110px;bottom:-150px;background:rgba(216,167,173,.18)}
-    .hero-inner{position:relative;z-index:1;max-width:850px;margin:0 auto;text-align:center}
-    .eyebrow{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;font-weight:800;color:var(--blue-dark)}
-    h1{margin:10px 0 5px;font-size:clamp(4rem,13vw,8.2rem);line-height:.86;font-weight:300;letter-spacing:-.055em}
-    .touch-dot{color:var(--rose)}
-    .hero-copy{margin:18px auto 0;max-width:650px;color:var(--muted);font-size:clamp(.95rem,2vw,1.08rem);line-height:1.8}
-    .hero-meta{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:20px}
-    .pill{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.62);font-size:.82rem;font-weight:800;color:var(--blue-dark)}
-    .now-strip{
-      margin-top:22px;padding:14px 16px;border-radius:18px;background:linear-gradient(90deg,var(--ice),var(--rose-soft));
-      font-size:.9rem;font-weight:800;line-height:1.6;
+    .hero::after{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(180deg,transparent 44%,rgba(1,7,16,.08) 66%,rgba(1,7,16,.64) 100%)
     }
-    .grid{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:22px;margin-top:24px;align-items:start}
-    .panel{
-      background:rgba(255,253,249,.86);border:1px solid rgba(255,255,255,.95);
-      box-shadow:var(--shadow);border-radius:var(--radius-xl);overflow:hidden;
-      backdrop-filter:blur(14px);
+    .hero-photo{position:relative;z-index:0;background:#000}
+    .hero-photo img{display:block;width:100%;height:auto;min-height:210px;object-fit:cover;object-position:center}
+    .hero-copy{
+      position:relative;z-index:2;margin-top:-72px;padding:0 28px 27px;
+      display:flex;align-items:flex-end;justify-content:space-between;gap:24px
     }
-    .panel-inner{padding:25px}
-    .section-kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.2em;font-weight:900;color:var(--rose);margin-bottom:5px}
-    .section-title{font-size:1.45rem;margin:0 0 8px;letter-spacing:-.02em}
-    .section-note{margin:0 0 18px;color:var(--muted);font-size:.91rem;line-height:1.75}
-    .campaign-stack{display:grid;gap:16px}
-    .campaign-card{
-      background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:var(--radius-lg);
-      padding:20px;box-shadow:0 9px 28px rgba(57,77,91,.07);
-    }
-    .card-head{display:flex;gap:12px;justify-content:space-between;align-items:flex-start}
-    .card-no{font-size:.72rem;letter-spacing:.12em;font-weight:900;color:var(--rose);margin-bottom:4px}
-    .card-title{margin:0;font-size:1.13rem;line-height:1.45}
-    .status-badge{flex:0 0 auto;padding:7px 10px;border-radius:999px;font-size:.73rem;font-weight:900;border:1px solid var(--line);background:#f4f6f7;color:var(--muted)}
-    .status-badge.live{background:#edf5ec;border-color:#d2e1cf;color:#587253}
-    .status-badge.upcoming{background:#eef4f8;border-color:#d8e4eb;color:#5c788c}
-    .status-badge.closed{background:#f4f1f1;color:#908488}
-    .card-meta{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
-    .card-meta span{font-size:.79rem;font-weight:800;color:#647580;background:#f1f5f7;border-radius:999px;padding:7px 9px}
-    .gift{
-      display:flex;gap:10px;align-items:flex-start;padding:12px 13px;margin:0 0 14px;
-      border-radius:14px;background:linear-gradient(135deg,#fbf6f3,#f3f7f8);border:1px solid #e7e4e0;
-      font-size:.89rem;line-height:1.6;color:#5f6e78;
-    }
-    .gift b{color:var(--ink)}
+    .hero-copy h1{margin:0;font-size:clamp(2.2rem,6.6vw,5.1rem);line-height:.92;font-weight:950;font-style:italic;letter-spacing:-.04em;text-shadow:0 7px 28px rgba(0,0,0,.7)}
+    .hero-copy h1 small{display:block;font-size:.25em;letter-spacing:.16em;font-style:normal;margin-bottom:10px;color:rgba(255,255,255,.82)}
+    .hero-side{text-align:right;max-width:390px}
+    .hero-side p{margin:0 0 10px;color:rgba(255,255,255,.86);font-size:.93rem;line-height:1.65;font-weight:700}
+    .hero-meta{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+    .pill{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.17);font-size:.76rem;font-weight:900;backdrop-filter:blur(10px)}
+    .pill.blue{background:rgba(79,169,255,.18);border-color:rgba(123,220,255,.38)}
+
+    .main-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);gap:22px;margin-top:22px;align-items:start}
+    .left-stack{display:grid;gap:20px}
+    .panel{border-radius:var(--radius-xl);background:var(--glass);border:1px solid rgba(255,255,255,.11);box-shadow:var(--shadow);backdrop-filter:blur(12px);overflow:hidden}
+    .panel-inner{padding:24px}
+    .sticky{position:sticky;top:18px}
+
+    .status-section{display:none}
+    .status-section.has-items{display:block}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin-bottom:14px}
+    .section-kicker{margin:0 0 4px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:var(--cyan)}
+    .section-title{margin:0;font-size:1.42rem;font-weight:950;letter-spacing:.01em}
+    .section-note{margin:5px 0 0;color:rgba(255,255,255,.68);font-size:.9rem;line-height:1.65}
+    .count-pill{flex:0 0 auto;min-width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.09);border:1px solid var(--line);font-weight:950}
+
+    .campaign-stack{display:grid;gap:15px}
+    .campaign-card{background:linear-gradient(180deg,#fff 0%,#f5faff 100%);color:var(--ink);border-radius:var(--radius-lg);padding:20px;box-shadow:0 14px 34px rgba(0,0,0,.22);border:1px solid rgba(72,155,224,.15)}
+    .campaign-card.upcoming{background:linear-gradient(180deg,#f7fbff 0%,#edf5ff 100%)}
+    .campaign-card.ended{opacity:.72;filter:saturate(.76)}
+    .card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:11px}
+    .card-no{font-size:.72rem;letter-spacing:.14em;color:#7795b1;font-weight:900;margin-bottom:5px}
+    .card-title{margin:0;font-size:1.16rem;font-weight:950;line-height:1.4}
+    .badge{flex:0 0 auto;border-radius:999px;padding:7px 10px;font-size:.72rem;letter-spacing:.05em;font-weight:950;border:1px solid transparent}
+    .badge.active{color:#075182;background:#ddf4ff;border-color:#a8ddf6}
+    .badge.upcoming{color:#4f4f93;background:#ececff;border-color:#cfcfff}
+    .badge.ended{color:#66717b;background:#edf1f4;border-color:#d6dde2}
+
+    .card-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}
+    .card-meta span{padding:6px 9px;border-radius:999px;background:#edf7ff;border:1px solid #d8ecfb;color:#50738f;font-size:.79rem;font-weight:800}
+    .about{margin:0 0 14px;color:#47647c;line-height:1.72;font-size:.91rem}
+    .reward{margin:0 0 14px;padding:11px 13px;border-radius:15px;background:linear-gradient(90deg,#ebf8ff,#f1f0ff);border:1px solid #d6eafb;color:#264a67;font-size:.86rem;line-height:1.6}
+    .reward strong{color:#102e49}
+
     .checklist{display:grid;gap:9px}
-    .check-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:11px 12px;border-radius:14px;background:#f7f9fa;border:1px solid #e5ebee;transition:.15s ease}
-    .check-item input{width:19px;height:19px;margin:0;accent-color:var(--blue-dark);cursor:pointer}
-    .check-item label{cursor:pointer;font-size:.91rem;font-weight:750;line-height:1.45}
-    .status-pill{font-size:.69rem;font-weight:900;padding:5px 8px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#8b989f;white-space:nowrap}
-    .check-item:has(input:checked){background:#edf4ec;border-color:#d2e1cf}
-    .check-item:has(input:checked) label{color:#557052;text-decoration:line-through;text-decoration-color:rgba(85,112,82,.3)}
-    .check-item:has(input:checked) .status-pill{color:#557052;border-color:#d2e1cf;background:#f8fbf7}
+    .check-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 11px;border-radius:14px;background:#f2f8fd;border:1px solid #dfeef8;transition:.18s ease}
+    .check-item input{width:18px;height:18px;margin:0;accent-color:#348fda;cursor:pointer}
+    .check-item label{font-size:.9rem;line-height:1.45;font-weight:820;cursor:pointer}
+    .check-item .status-pill{white-space:nowrap;border-radius:999px;padding:4px 8px;font-size:.68rem;font-weight:900;color:#6d8496;background:#fff;border:1px solid #d9e7f0}
+    .check-item:has(input:checked){background:#e6f7ff;border-color:#b8e4f7}
+    .check-item:has(input:checked) label{color:#236080;text-decoration:line-through;text-decoration-color:rgba(35,96,128,.28);text-decoration-thickness:2px}
+    .check-item:has(input:checked) .status-pill{color:#1e6a8f;background:#dff5ff;border-color:#b7e2f5}
+    .check-item input:disabled{opacity:.45;cursor:not-allowed}
+    .check-item:has(input:disabled){opacity:.58;background:#f3f5f7}
+
     .link-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
-    .btn-link,button.action{
-      text-decoration:none;border:0;border-radius:999px;padding:11px 15px;font-weight:900;font-size:.85rem;cursor:pointer;transition:.15s ease;
-    }
-    .btn-link:hover,button.action:hover{transform:translateY(-1px)}
-    .primary{background:var(--blue-dark);color:#fff}
-    .secondary{background:var(--rose-soft);color:#805f64;border:1px solid #e7cfd2}
-    .outline{background:transparent;color:var(--blue-dark);border:1px solid #bfcdd6}
-    .disabled{opacity:.48;pointer-events:none}
-    .member-schedule{margin:13px 0 15px;padding:13px;border:1px solid #dce5ea;border-radius:15px;background:#f6f9fa;color:#687984;font-size:.82rem;line-height:1.8}
-    .member-schedule strong{display:block;color:var(--ink);margin-bottom:3px}
-    .canvas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .member-box{border:1px solid #e1e8ec;border-radius:15px;padding:11px;background:#fbfcfc}
-    .member-name{display:flex;justify-content:space-between;gap:8px;align-items:baseline;margin:0 0 8px;font-size:.86rem;font-weight:900}
-    .member-name small{font-size:.67rem;color:var(--muted);font-weight:700}
-    .member-box .check-item{padding:9px 10px}
-    .member-box .status-pill{display:none}
-    .side{position:sticky;top:14px}
-    .summary-box{padding:19px;border-radius:22px;background:linear-gradient(145deg,#6c879a,#849fb2);color:#fff;margin-bottom:14px}
-    .progress-number{display:flex;align-items:baseline;gap:7px;margin-bottom:11px}
-    .progress-number strong{font-size:3rem;line-height:1}
-    .progress-number span{font-weight:700;color:rgba(255,255,255,.78)}
-    .bar{height:10px;background:rgba(255,255,255,.2);border-radius:999px;overflow:hidden}
-    .bar-fill{height:100%;width:0;background:linear-gradient(90deg,#fff,#f2dfe1);border-radius:inherit;transition:width .2s ease}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}
-    .stat{padding:10px 6px;border-radius:13px;background:rgba(255,255,255,.12);text-align:center}
-    .stat strong{display:block;font-size:1.22rem}
-    .stat span{font-size:.68rem;color:rgba(255,255,255,.74)}
-    .deadline{padding:16px;border:1px solid #dce4e9;border-radius:19px;background:#f8fafb;margin-bottom:14px}
-    .deadline .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;font-weight:900;color:var(--rose)}
-    .deadline strong{display:block;margin:5px 0 4px;font-size:.95rem}
-    .deadline p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.6}
-    .todo-box{padding:16px;border:1px solid #e2e8eb;border-radius:19px;background:#fff}
-    .todo-box strong{font-size:.9rem}
-    .todo-list{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:.82rem;line-height:1.75}
-    .side-actions{display:grid;gap:8px;margin-top:12px}
-    .side-actions button{width:100%}
-    .notice{
-      margin-top:22px;padding:20px 22px;border-radius:24px;background:rgba(255,253,249,.76);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);
-    }
-    .notice h2{margin:0 0 9px;font-size:1.05rem}
-    .notice ul{margin:0;padding-left:19px;color:var(--muted);font-size:.84rem;line-height:1.8}
-    .save-area{margin-top:22px}
-    .save-card{
-      overflow:hidden;position:relative;padding:30px;border-radius:30px;color:#fff;
-      background:
-        radial-gradient(circle at 88% 10%,rgba(216,167,173,.48),transparent 28%),
-        radial-gradient(circle at 6% 90%,rgba(167,182,163,.28),transparent 30%),
-        linear-gradient(145deg,#5c7588,#7f9db4 52%,#bd979c);
-    }
-    .save-card::after{content:"TOUCH";position:absolute;right:-10px;bottom:-38px;font-size:6.5rem;font-weight:300;letter-spacing:-.07em;color:rgba(255,255,255,.09);pointer-events:none}
-    .save-kicker{font-size:.7rem;letter-spacing:.2em;font-weight:900;text-transform:uppercase}
-    .save-title{font-size:3rem;font-weight:300;letter-spacing:-.05em;margin:7px 0 18px}
-    .save-summary{display:grid;grid-template-columns:130px 1fr;gap:16px;align-items:center}
-    .save-rate{width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;background:rgba(255,255,255,.09)}
-    .save-rate strong{font-size:2.2rem}
-    .save-metrics{display:grid;gap:8px}
-    .save-metric{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:7px;font-size:.83rem}
-    .save-todo{margin-top:20px;padding-top:15px;border-top:1px solid rgba(255,255,255,.22)}
-    .save-todo h3{margin:0 0 6px;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em}
-    .save-todo ul{margin:0;padding-left:18px;font-size:.77rem;line-height:1.6;color:rgba(255,255,255,.86)}
-    .save-footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:18px;font-size:.68rem;color:rgba(255,255,255,.65)}
-    .footer{text-align:center;margin:28px 0 0;color:var(--muted);font-size:.76rem;line-height:1.7}
+    .btn-link,.btn-disabled,button.action{appearance:none;text-decoration:none;border:0;border-radius:999px;padding:11px 15px;font-size:.87rem;font-weight:950;cursor:pointer}
+    .btn-link.primary,button.action.primary{background:linear-gradient(90deg,#2f8ddd,#6dcdf2,#8787f6);color:#fff;box-shadow:0 7px 18px rgba(53,142,214,.22)}
+    .btn-link.secondary{background:#eaf5fc;color:#245f88;border:1px solid #cce5f5}
+    .btn-disabled{background:#eef1f4;color:#8996a2;cursor:not-allowed}
+    button.action.ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15)}
+
+    details.schedule{margin-top:14px;border-radius:16px;background:#edf7ff;border:1px solid #d6eaf8;color:#345b78;overflow:hidden}
+    details.schedule summary{cursor:pointer;padding:11px 13px;font-size:.86rem;font-weight:900;list-style:none}
+    details.schedule summary::-webkit-details-marker{display:none}
+    .member-schedule{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 12px 12px}
+    .member-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 9px;border-radius:11px;background:#fff;border:1px solid #dcecf7;font-size:.76rem;font-weight:800}
+    .member-state{font-size:.66rem;border-radius:999px;padding:4px 7px;background:#edf0ff;color:#6767a7;white-space:nowrap}
+    .member-state.open{background:#ddf4ff;color:#136189}
+    .member-state.ended{background:#eceff2;color:#707b84}
+
+    .summary-box{padding:18px;border-radius:24px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.12);margin-bottom:15px}
+    .progress-number{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}.progress-number strong{font-size:clamp(2rem,5vw,3.15rem);line-height:1}.progress-number span{color:rgba(255,255,255,.66);font-weight:800}
+    .bar{height:11px;border-radius:999px;background:rgba(255,255,255,.13);overflow:hidden}.bar-fill{height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#3f9ff0,#75d9ff,#8d8cff);transition:width .28s ease}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.stat{text-align:center;padding:11px 8px;border-radius:16px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.08)}.stat strong{display:block;font-size:1.25rem}.stat span{font-size:.72rem;color:rgba(255,255,255,.66)}
+    .timeline-box{padding:15px;border-radius:20px;background:linear-gradient(135deg,rgba(59,151,226,.17),rgba(130,132,243,.11));border:1px solid rgba(128,194,244,.17);margin-bottom:15px}
+    .timeline-box small{display:block;color:var(--cyan);font-weight:900;letter-spacing:.08em;margin-bottom:5px}.timeline-box strong{display:block;font-size:1rem;line-height:1.5}.timeline-box span{display:block;color:rgba(255,255,255,.72);margin-top:5px;font-size:.86rem;line-height:1.55}
+    .todo-title{margin:0 0 8px;font-weight:950}.todo-list{margin:0;padding-left:18px;line-height:1.65;color:rgba(255,255,255,.85);font-size:.85rem}.todo-list li+li{margin-top:4px}
+    .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+
+    .save-panel{margin-top:22px}
+    .save-card{position:relative;overflow:hidden;border-radius:30px;padding:25px;background:radial-gradient(circle at 15% 0%,rgba(100,205,255,.29),transparent 29%),radial-gradient(circle at 92% 6%,rgba(141,140,255,.23),transparent 31%),linear-gradient(155deg,#05101d,#0b3157 55%,#071326);border:1px solid rgba(255,255,255,.15)}
+    .save-card::after{content:"TOUCH";position:absolute;right:-10px;top:8px;font-size:5rem;font-style:italic;font-weight:950;letter-spacing:-.06em;color:rgba(255,255,255,.06);pointer-events:none}
+    .save-brand{position:relative;z-index:1;font-size:.74rem;letter-spacing:.18em;font-weight:900;color:rgba(255,255,255,.74)}
+    .save-title{position:relative;z-index:1;margin:6px 0 18px;font-size:2.8rem;line-height:.92;font-style:italic;font-weight:950}
+    .save-top{position:relative;z-index:1;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+    .save-rate{width:116px;height:116px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}.save-rate strong{font-size:2rem}.save-rate span{display:block;font-size:.68rem;color:rgba(255,255,255,.62);text-align:center}
+    .save-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.save-metric{padding:11px;border-radius:15px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09)}.save-metric span{display:block;font-size:.68rem;color:rgba(255,255,255,.62)}.save-metric b{display:block;margin-top:4px;font-size:1rem}
+    .save-footer{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px;padding-top:13px;border-top:1px solid rgba(255,255,255,.1);font-size:.68rem;color:rgba(255,255,255,.55);letter-spacing:.06em}
+    .note{margin:14px 0 0;color:rgba(255,255,255,.58);font-size:.77rem;line-height:1.7}
+
     @media(max-width:860px){
-      .grid{grid-template-columns:1fr}
-      .side{position:static}
+      .main-grid{grid-template-columns:1fr}.sticky{position:static}.hero-copy{margin-top:-52px;display:block}.hero-side{text-align:left;margin-top:13px;max-width:none}.hero-meta{justify-content:flex-start}
     }
     @media(max-width:620px){
-      body{padding:12px 10px 58px}
-      .topbar{display:block;text-align:center}
-      .topbar-links{justify-content:center;margin-top:7px}
-      .hero{padding:34px 18px 24px;border-radius:30px}
-      .panel-inner{padding:18px 14px}
-      .campaign-card{padding:16px 13px}
-      .canvas-grid{grid-template-columns:1fr}
-      .card-head{align-items:flex-start}
-      .save-card{padding:24px 20px}
-      .save-summary{grid-template-columns:1fr}
-      .save-rate{width:100px;height:100px}
+      body{padding:12px 10px 42px}.top-links{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}.top-links a{white-space:nowrap}
+      .hero{border-radius:24px}.hero-photo img{min-height:165px}.hero-copy{margin-top:-38px;padding:0 17px 18px}.hero-copy h1{font-size:2.45rem}.hero-side p{font-size:.82rem}.pill{font-size:.68rem;padding:6px 8px}
+      .panel{border-radius:23px}.panel-inner{padding:17px}.section-head{align-items:center}.campaign-card{padding:16px;border-radius:19px}.card-head{display:block}.badge{display:inline-block;margin-top:8px}
+      .member-schedule{grid-template-columns:1fr}.save-top{grid-template-columns:1fr}.save-rate{width:98px;height:98px}.save-metrics{grid-template-columns:1fr 1fr 1fr}.save-title{font-size:2.3rem}
     }
   </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="topbar">
-    <a href="https://rikomuze.github.io/muze-tool-box/">← MUZE TOOL BOX</a>
-    <div class="topbar-links">
-      <a href="#campaigns">CAMPAIGNS</a>
-      <a href="#progress">PROGRESS</a>
-      <a href="https://www.universal-music.co.jp/mazzel/news/2026-09-15-2/" target="_blank" rel="noopener">公式詳細 ↗</a>
-    </div>
-  </div>
+  <div class="wrap">
+    <nav class="top-links" aria-label="関連リンク">
+      <a href="https://rikomuze.github.io/muze-tool-box/">MUZE TOOL BOX</a>
+      <a href="https://www.universal-music.co.jp/mazzel/news/2026-09-15-2/" target="_blank" rel="noopener">公式キャンペーン詳細</a>
+    </nav>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">MAZZEL 5th Single / Digital Campaign</div>
-      <h1>Touch<span class="touch-dot">.</span></h1>
-      <p class="hero-copy">キャンペーンが多くても、やることと締切をひとつのページで。チェックした進捗はこの端末に保存されます。</p>
-      <div class="hero-meta">
-        <span class="pill">Digital Release 10.19</span>
-        <span class="pill">CD Release 10.21</span>
-        <span class="pill">4 Campaigns</span>
+    <header class="hero">
+      <div class="hero-photo"><img src="hero.jpg" alt="MAZZEL 5th Single Touch キービジュアル" /></div>
+      <div class="hero-copy">
+        <h1><small>MAZZEL 5TH SINGLE</small>Touch</h1>
+        <div class="hero-side">
+          <p>いま参加できるものから順に、自動で整理。チェックした進捗はこの端末に保存されます。</p>
+          <div class="hero-meta">
+            <span class="pill blue" id="hero-active-count">NOW OPEN</span>
+            <span class="pill">Digital Release 2026.10.19</span>
+            <span class="pill">4 Campaigns</span>
+          </div>
+        </div>
       </div>
-      <div class="now-strip"><strong>いま応募できるもの：</strong> Pre-add / Pre-save ＋ iTunesプレオーダー ｜ 締切 10/18 23:59</div>
+    </header>
+
+    <div class="main-grid">
+      <main class="left-stack">
+        <section class="panel status-section" id="section-active">
+          <div class="panel-inner">
+            <div class="section-head">
+              <div><p class="section-kicker">NOW OPEN</p><h2 class="section-title">今参加できるキャンペーン</h2><p class="section-note">現在の日時に合わせて自動で入れ替わります。</p></div>
+              <div class="count-pill" id="count-active">0</div>
+            </div>
+            <div class="campaign-stack" id="campaigns-active"></div>
+          </div>
+        </section>
+
+        <section class="panel status-section" id="section-upcoming">
+          <div class="panel-inner">
+            <div class="section-head">
+              <div><p class="section-kicker">COMING SOON</p><h2 class="section-title">これから始まるキャンペーン</h2><p class="section-note">開始時刻になると自動で上の「今参加できる」に移動します。</p></div>
+              <div class="count-pill" id="count-upcoming">0</div>
+            </div>
+            <div class="campaign-stack" id="campaigns-upcoming"></div>
+          </div>
+        </section>
+
+        <section class="panel status-section" id="section-ended">
+          <div class="panel-inner">
+            <div class="section-head">
+              <div><p class="section-kicker">ENDED</p><h2 class="section-title">終了したキャンペーン</h2><p class="section-note">締切を過ぎたキャンペーンはこちらに移動します。</p></div>
+              <div class="count-pill" id="count-ended">0</div>
+            </div>
+            <div class="campaign-stack" id="campaigns-ended"></div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="panel sticky">
+        <div class="panel-inner">
+          <div class="section-head"><div><p class="section-kicker">MY PROGRESS</p><h2 class="section-title">進捗</h2></div></div>
+          <div class="summary-box">
+            <div class="progress-number"><strong id="done-count">0</strong><span>/ <span id="total-count">0</span> 完了</span></div>
+            <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+            <div class="stats"><div class="stat"><strong id="stat-done">0</strong><span>完了</span></div><div class="stat"><strong id="stat-left">0</strong><span>残り</span></div><div class="stat"><strong id="stat-rate">0%</strong><span>達成率</span></div></div>
+          </div>
+
+          <div class="timeline-box"><small>NEXT MOVE</small><strong id="next-label">確認中…</strong><span id="next-time">日時を計算中…</span></div>
+
+          <div class="summary-box"><p class="todo-title">今できる残りのこと</p><ul class="todo-list" id="todo-list"></ul></div>
+          <div class="actions"><button class="action primary" id="save-image" type="button">進捗を画像保存 / 共有</button><button class="action ghost" id="reset-checks" type="button">チェックをリセット</button></div>
+          <p class="note">応募条件や特典内容は変更される可能性があります。応募前に公式ページも確認してください。</p>
+        </div>
+      </aside>
     </div>
-  </header>
 
-  <main class="grid" id="campaigns">
-    <section class="panel">
+    <section class="panel save-panel">
       <div class="panel-inner">
-        <div class="section-kicker">Campaigns</div>
-        <h2 class="section-title">Touch デジタルキャンペーン</h2>
-        <p class="section-note">応募条件・期間は変更される可能性があるため、応募前に必ず公式ページも確認してください。</p>
-
-        <div class="campaign-stack">
-          <article class="campaign-card campaign-status" data-start="2026-09-15T12:00:00+09:00" data-end="2026-10-18T23:59:59+09:00">
-            <div class="card-head">
-              <div><div class="card-no">01 / NOW</div><h3 class="card-title">Pre-add / Pre-save</h3></div>
-              <span class="status-badge">判定中</span>
-            </div>
-            <div class="card-meta"><span>9/15 12:00〜10/18 23:59</span><span>Apple Music / Spotify</span></div>
-            <div class="gift"><span>✦</span><div><b>全員特典：待受け画像</b><br>応募ページからPre-add / Pre-saveして必要事項を入力。</div></div>
-            <div class="checklist">
-              <div class="check-item"><input type="checkbox" id="pre-save" data-check="pre-save"><label for="pre-save">Pre-add / Pre-saveした</label><span class="status-pill">未完了</span></div>
-              <div class="check-item"><input type="checkbox" id="pre-entry" data-check="pre-entry"><label for="pre-entry">必要事項を入力して応募完了した</label><span class="status-pill">未完了</span></div>
-            </div>
-            <div class="link-buttons">
-              <a class="btn-link primary" href="https://presave.umusic.com/pspa-mazzel-touch" target="_blank" rel="noopener">応募ページへ</a>
-              <a class="btn-link outline" href="https://www.universal-music.co.jp/mazzel/news/2026-09-15-2/" target="_blank" rel="noopener">公式詳細</a>
-            </div>
-          </article>
-
-          <article class="campaign-card campaign-status" data-start="2026-09-15T12:00:00+09:00" data-end="2026-10-18T23:59:59+09:00">
-            <div class="card-head">
-              <div><div class="card-no">02 / NOW</div><h3 class="card-title">iTunes プレオーダー</h3></div>
-              <span class="status-badge">判定中</span>
-            </div>
-            <div class="card-meta"><span>9/15 12:00〜10/18 23:59</span><span>iTunes限定</span></div>
-            <div class="gift"><span>✦</span><div><b>全員特典：限定ボイスコメント</b><br>1回の応募でメンバー全員分。購入履歴のスクショは加工せずアップロード。</div></div>
-            <div class="checklist">
-              <div class="check-item"><input type="checkbox" id="po-buy" data-check="po-buy"><label for="po-buy">iTunesで「Touch」をプレオーダーした</label><span class="status-pill">未完了</span></div>
-              <div class="check-item"><input type="checkbox" id="po-ss" data-check="po-ss"><label for="po-ss">購入履歴のスクショを撮った</label><span class="status-pill">未完了</span></div>
-              <div class="check-item"><input type="checkbox" id="po-entry" data-check="po-entry"><label for="po-entry">応募フォームから応募完了した</label><span class="status-pill">未完了</span></div>
-            </div>
-            <div class="link-buttons">
-              <a class="btn-link secondary" href="https://music.apple.com/jp/album/touch-single/6810920370?l=ja&ls=1&app=itunes" target="_blank" rel="noopener">プレオーダー</a>
-              <a class="btn-link primary" href="https://form.universal-music.co.jp/po_mazzel_touch/page/index.html" target="_blank" rel="noopener">応募する</a>
-            </div>
-          </article>
-
-          <article class="campaign-card campaign-status" data-start="2026-10-19T12:00:00+09:00" data-end="2026-10-26T12:00:00+09:00">
-            <div class="card-head">
-              <div><div class="card-no">03 / LATER</div><h3 class="card-title">ダウンロードキャンペーン</h3></div>
-              <span class="status-badge">判定中</span>
-            </div>
-            <div class="card-meta"><span>10/19 12:00〜10/26 12:00</span><span>iTunes / Amazon Music / レコチョク / mora</span></div>
-            <div class="gift"><span>✦</span><div><b>全員特典：ソロアーティスト写真 アザーカット</b><br>1回の応募でメンバー全員分。</div></div>
-            <div class="checklist">
-              <div class="check-item"><input type="checkbox" id="dl-buy" data-check="dl-buy"><label for="dl-buy">対象サービスでダウンロード購入した</label><span class="status-pill">未完了</span></div>
-              <div class="check-item"><input type="checkbox" id="dl-ss" data-check="dl-ss"><label for="dl-ss">購入履歴のスクショを撮った</label><span class="status-pill">未完了</span></div>
-              <div class="check-item"><input type="checkbox" id="dl-entry" data-check="dl-entry"><label for="dl-entry">応募完了した</label><span class="status-pill">未完了</span></div>
-            </div>
-            <div class="link-buttons">
-              <span class="btn-link outline disabled">応募URLは後日案内</span>
-              <a class="btn-link outline" href="https://www.universal-music.co.jp/mazzel/news/2026-09-15-2/" target="_blank" rel="noopener">公式詳細</a>
-            </div>
-          </article>
-
-          <article class="campaign-card campaign-status" data-start="2026-10-20T17:00:00+09:00" data-end="2026-10-29T18:00:00+09:00">
-            <div class="card-head">
-              <div><div class="card-no">04 / LATER</div><h3 class="card-title">Spotify Canvas シェア</h3></div>
-              <span class="status-badge">判定中</span>
-            </div>
-            <div class="card-meta"><span>10/20〜10/29 18:00</span><span>スマートフォンのみ</span><span>#MAZZEL_Touch</span></div>
-            <div class="gift"><span>✦</span><div><b>全員特典：メンバーソロ スマホ待受</b><br>シェアしたメンバーの待受画像。InstagramまたはXへシェア。</div></div>
-            <div class="member-schedule">
-              <strong>Canvas公開スケジュール（各日17:00）</strong>
-              KAIRYU 10/20 ／ NAOYA 10/21 ／ RAN 10/22 ／ SEITO 10/23 ／ RYUKI 10/24 ／ TAKUTO 10/25 ／ HAYATO 10/26 ／ EIKI 10/27
-            </div>
-            <div class="canvas-grid">
-              <div class="member-box"><div class="member-name">KAIRYU <small>10/20 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-kairyu-share" data-check="cv-kairyu-share"><label for="cv-kairyu-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-kairyu-ss" data-check="cv-kairyu-ss"><label for="cv-kairyu-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-kairyu-entry" data-check="cv-kairyu-entry"><label for="cv-kairyu-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">NAOYA <small>10/21 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-naoya-share" data-check="cv-naoya-share"><label for="cv-naoya-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-naoya-ss" data-check="cv-naoya-ss"><label for="cv-naoya-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-naoya-entry" data-check="cv-naoya-entry"><label for="cv-naoya-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">RAN <small>10/22 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-ran-share" data-check="cv-ran-share"><label for="cv-ran-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-ran-ss" data-check="cv-ran-ss"><label for="cv-ran-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-ran-entry" data-check="cv-ran-entry"><label for="cv-ran-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">SEITO <small>10/23 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-seito-share" data-check="cv-seito-share"><label for="cv-seito-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-seito-ss" data-check="cv-seito-ss"><label for="cv-seito-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-seito-entry" data-check="cv-seito-entry"><label for="cv-seito-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">RYUKI <small>10/24 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-ryuki-share" data-check="cv-ryuki-share"><label for="cv-ryuki-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-ryuki-ss" data-check="cv-ryuki-ss"><label for="cv-ryuki-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-ryuki-entry" data-check="cv-ryuki-entry"><label for="cv-ryuki-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">TAKUTO <small>10/25 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-takuto-share" data-check="cv-takuto-share"><label for="cv-takuto-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-takuto-ss" data-check="cv-takuto-ss"><label for="cv-takuto-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-takuto-entry" data-check="cv-takuto-entry"><label for="cv-takuto-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">HAYATO <small>10/26 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-hayato-share" data-check="cv-hayato-share"><label for="cv-hayato-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-hayato-ss" data-check="cv-hayato-ss"><label for="cv-hayato-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-hayato-entry" data-check="cv-hayato-entry"><label for="cv-hayato-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-              <div class="member-box"><div class="member-name">EIKI <small>10/27 17:00〜</small></div><div class="checklist">
-                <div class="check-item"><input type="checkbox" id="cv-eiki-share" data-check="cv-eiki-share"><label for="cv-eiki-share">シェア</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-eiki-ss" data-check="cv-eiki-ss"><label for="cv-eiki-ss">スクショ</label><span class="status-pill">未完了</span></div>
-                <div class="check-item"><input type="checkbox" id="cv-eiki-entry" data-check="cv-eiki-entry"><label for="cv-eiki-entry">応募</label><span class="status-pill">未完了</span></div>
-              </div></div>
-            </div>
-            <div class="link-buttons">
-              <span class="btn-link outline disabled">応募URLは後日案内</span>
-              <a class="btn-link outline" href="https://www.universal-music.co.jp/mazzel/news/2026-09-15-2/" target="_blank" rel="noopener">公式詳細</a>
-            </div>
-          </article>
+        <div class="section-head"><div><p class="section-kicker">SAVE CARD</p><h2 class="section-title">保存用カード</h2><p class="section-note">現在の進捗を画像として残せます。</p></div></div>
+        <div class="save-card" id="capture-card">
+          <div class="save-brand">MAZZEL 5TH SINGLE / DIGITAL CAMPAIGN</div>
+          <div class="save-title">Touch</div>
+          <div class="save-top">
+            <div class="save-rate"><div><strong id="save-rate">0%</strong><span>complete</span></div></div>
+            <div class="save-metrics"><div class="save-metric"><span>完了</span><b><span id="save-done">0</span> / <span id="save-total">0</span></b></div><div class="save-metric"><span>残り</span><b id="save-left">0</b></div><div class="save-metric"><span>開催中</span><b id="save-open">0</b></div></div>
+          </div>
+          <div class="save-footer"><span>Touch Campaign Checklist</span><span id="save-date"></span></div>
         </div>
       </div>
     </section>
+  </div>
 
-    <aside class="panel side" id="progress">
-      <div class="panel-inner">
-        <div class="section-kicker">Progress</div>
-        <h2 class="section-title">進捗</h2>
-        <p class="section-note">チェック状態はこのブラウザに自動保存。</p>
-        <div class="summary-box">
-          <div class="progress-number"><strong id="done-count">0</strong><span>/ <span id="total-count">0</span> 完了</span></div>
-          <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
-          <div class="stats">
-            <div class="stat"><strong id="stat-done">0</strong><span>完了</span></div>
-            <div class="stat"><strong id="stat-left">0</strong><span>残り</span></div>
-            <div class="stat"><strong id="stat-rate">0%</strong><span>達成率</span></div>
-          </div>
-        </div>
-        <div class="deadline">
-          <div class="label">Next Deadline</div>
-          <strong id="next-deadline-label">確認中…</strong>
-          <p id="countdown">残り時間を計算中…</p>
-        </div>
-        <div class="todo-box">
-          <strong>残りのやること</strong>
-          <ul class="todo-list" id="todo-list"></ul>
-        </div>
-        <div class="side-actions">
-          <button class="action primary" id="save-image" type="button">進捗カードを保存 / 共有</button>
-          <button class="action outline" id="reset-checks" type="button">チェックをリセット</button>
-        </div>
-      </div>
-    </aside>
-  </main>
+  <script>
+  (() => {
+    "use strict";
+    const STORAGE_KEY = "mazzel-touch-campaign-checks-v2";
+    const OFFICIAL_URL = "https://www.universal-music.co.jp/mazzel/news/2026-09-15-2/";
 
-  <section class="notice">
-    <h2>応募前にここだけ確認</h2>
-    <ul>
-      <li>iTunesプレオーダー・ダウンロード・Canvas特典は2026年10月以降の送付予定。</li>
-      <li>メール受信設定で <b>@jp.umusic-online.com</b>、<b>@mail.universal-music.co.jp</b>、<b>@umusic.com</b> を受信可能に。</li>
-      <li>@icloud.com では案内メールが届かない場合があるため、公式は別ドメインのアドレスを案内しています。</li>
-      <li>後日案内予定の応募URLは、公式発表後にこのページも更新します。</li>
-    </ul>
-  </section>
+    const campaigns = [
+      {
+        id:"presave", no:"01", title:"Pre-add / Pre-saveキャンペーン",
+        start:"2026-09-15T12:00:00+09:00", end:"2026-10-18T23:59:59+09:00",
+        reward:"待受け画像", meta:["10/18(日) 23:59まで","Apple Music / Spotify"],
+        about:"応募ページから『Touch』をPre-add / Pre-saveし、必要事項を入力して応募。",
+        tasks:[
+          ["presave-action","Pre-add / Pre-saveを完了した"],
+          ["presave-entry","応募フォームを送信した"]
+        ],
+        links:[
+          ["応募する","https://presave.umusic.com/pspa-mazzel-touch","primary"],
+          ["公式詳細",OFFICIAL_URL,"secondary"]
+        ]
+      },
+      {
+        id:"preorder", no:"02", title:"iTunesプレオーダーキャンペーン",
+        start:"2026-09-15T12:00:00+09:00", end:"2026-10-18T23:59:59+09:00",
+        reward:"限定ボイスコメント（メンバー全員分）", meta:["10/18(日) 23:59まで","iTunes"],
+        about:"iTunesで『Touch』をプレオーダーし、購入履歴のスクリーンショットを添えて応募。",
+        tasks:[
+          ["preorder-buy","iTunesでプレオーダーした"],
+          ["preorder-ss","購入履歴のスクショを撮った"],
+          ["preorder-entry","応募フォームを送信した"]
+        ],
+        links:[
+          ["プレオーダー","https://music.apple.com/jp/album/touch-single/6810920370?l=ja&ls=1&app=itunes","primary"],
+          ["応募する","https://form.universal-music.co.jp/po_mazzel_touch/page/index.html","secondary"],
+          ["公式詳細",OFFICIAL_URL,"secondary"]
+        ]
+      },
+      {
+        id:"download", no:"03", title:"ダウンロードキャンペーン",
+        start:"2026-10-19T12:00:00+09:00", end:"2026-10-26T12:00:00+09:00",
+        reward:"各メンバーのソロアーティスト写真（アザーカット）", meta:["10/19(月) 12:00〜10/26(月) 12:00","iTunes / Amazon Music / レコチョク / mora"],
+        about:"対象サービスで『Touch』をダウンロード購入し、購入履歴のスクリーンショットを添えて応募。",
+        tasks:[
+          ["download-buy","対象サービスでダウンロード購入した"],
+          ["download-ss","購入履歴のスクショを撮った"],
+          ["download-entry","応募フォームを送信した"]
+        ],
+        links:[["応募URLは後日公開",null,"disabled"],["公式詳細",OFFICIAL_URL,"secondary"]]
+      },
+      {
+        id:"canvas", no:"04", title:"Spotify Canvasシェアキャンペーン",
+        start:"2026-10-20T17:00:00+09:00", end:"2026-10-29T18:00:00+09:00",
+        reward:"シェアしたメンバーのソロスマホ待受画像", meta:["10/20(火)〜10/29(木) 18:00","Spotify / Instagram または X"],
+        about:"SpotifyでメンバーソロCanvasをシェアし、投稿のスクリーンショットを添えてエントリー。Canvasはスマートフォンで閲覧できます。",
+        members:[
+          ["KAIRYU","2026-10-20T17:00:00+09:00"],["NAOYA","2026-10-21T17:00:00+09:00"],["RAN","2026-10-22T17:00:00+09:00"],["SEITO","2026-10-23T17:00:00+09:00"],
+          ["RYUKI","2026-10-24T17:00:00+09:00"],["TAKUTO","2026-10-25T17:00:00+09:00"],["HAYATO","2026-10-26T17:00:00+09:00"],["EIKI","2026-10-27T17:00:00+09:00"]
+        ],
+        tasks:[],
+        links:[["応募URLは後日公開",null,"disabled"],["公式詳細",OFFICIAL_URL,"secondary"]]
+      }
+    ];
 
-  <section class="panel save-area">
-    <div class="panel-inner">
-      <div class="section-kicker">Share / Save</div>
-      <h2 class="section-title">保存用カード</h2>
-      <p class="section-note">今の進捗を画像で保存できます。</p>
-      <div class="save-card" id="capture-card">
-        <div class="save-kicker">MAZZEL 5th Single / Digital Campaign</div>
-        <div class="save-title">Touch.</div>
-        <div class="save-summary">
-          <div class="save-rate"><strong id="save-rate">0%</strong></div>
-          <div class="save-metrics">
-            <div class="save-metric"><span>完了</span><b><span id="save-done">0</span> / <span id="save-total">0</span></b></div>
-            <div class="save-metric"><span>残り</span><b id="save-left">0</b></div>
-            <div class="save-metric"><span>キャンペーン</span><b>4</b></div>
-          </div>
-        </div>
-        <div class="save-todo"><h3>Next tasks</h3><ul id="save-todo-list"></ul></div>
-        <div class="save-footer"><span>Touch Digital Campaign Checklist</span><span>saved on this device</span></div>
-      </div>
-    </div>
-  </section>
+    campaigns.find(c => c.id === "canvas").members.forEach(([name,start]) => {
+      const key = name.toLowerCase();
+      campaigns.find(c => c.id === "canvas").tasks.push([`canvas-${key}-share`,`${name}：Canvasをシェアした`,start]);
+      campaigns.find(c => c.id === "canvas").tasks.push([`canvas-${key}-ss`,`${name}：投稿のスクショを撮った`,start]);
+      campaigns.find(c => c.id === "canvas").tasks.push([`canvas-${key}-entry`,`${name}：応募した`,start]);
+    });
 
-  <footer class="footer">
-    非公式ファンメイドのチェックリストです。MAZZEL・BMSG・UNIVERSAL MUSIC JAPAN公式とは関係ありません。<br>
-    応募条件・期限などの最新情報は必ず公式ページをご確認ください。
-  </footer>
-</div>
+    const state = loadState();
+    const els = {
+      active:document.getElementById("campaigns-active"), upcoming:document.getElementById("campaigns-upcoming"), ended:document.getElementById("campaigns-ended"),
+      secActive:document.getElementById("section-active"), secUpcoming:document.getElementById("section-upcoming"), secEnded:document.getElementById("section-ended"),
+      countActive:document.getElementById("count-active"), countUpcoming:document.getElementById("count-upcoming"), countEnded:document.getElementById("count-ended")
+    };
 
-<script>
-const STORAGE_KEY = "mazzel-touch-digital-campaign-v1";
-const deadlines = [
-  { label:"Pre-add / Pre-save・iTunesプレオーダー：10/18 23:59", date:new Date("2026-10-18T23:59:59+09:00") },
-  { label:"ダウンロード：10/26 12:00", date:new Date("2026-10-26T12:00:00+09:00") },
-  { label:"Spotify Canvas：10/29 18:00", date:new Date("2026-10-29T18:00:00+09:00") }
-];
-
-const boxes = Array.from(document.querySelectorAll("[data-check]"));
-const tasks = boxes.map(box => ({ id:box.dataset.check, label:box.closest(".check-item").querySelector("label").textContent.trim() }));
-
-const els = {
-  done:document.getElementById("done-count"),
-  total:document.getElementById("total-count"),
-  statDone:document.getElementById("stat-done"),
-  statLeft:document.getElementById("stat-left"),
-  statRate:document.getElementById("stat-rate"),
-  bar:document.getElementById("bar-fill"),
-  todo:document.getElementById("todo-list"),
-  saveDone:document.getElementById("save-done"),
-  saveTotal:document.getElementById("save-total"),
-  saveLeft:document.getElementById("save-left"),
-  saveRate:document.getElementById("save-rate"),
-  saveTodo:document.getElementById("save-todo-list"),
-  nextLabel:document.getElementById("next-deadline-label"),
-  countdown:document.getElementById("countdown")
-};
-els.total.textContent = tasks.length;
-els.saveTotal.textContent = tasks.length;
-
-function loadState(){
-  try{return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}}
-  catch(e){return {}}
-}
-function saveState(){
-  const state={};
-  boxes.forEach(b=>state[b.dataset.check]=b.checked);
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
-}
-function renderList(el, remaining){
-  el.innerHTML="";
-  if(!remaining.length){
-    const li=document.createElement("li");li.textContent="全部完了！";el.appendChild(li);return;
-  }
-  remaining.slice(0,7).forEach(t=>{
-    const li=document.createElement("li");li.textContent=t.label;el.appendChild(li);
-  });
-  if(remaining.length>7){
-    const li=document.createElement("li");li.textContent=`ほか${remaining.length-7}件`;el.appendChild(li);
-  }
-}
-function updateProgress(){
-  const checked = boxes.filter(b=>b.checked).map(b=>b.dataset.check);
-  const done=checked.length,left=tasks.length-done,rate=Math.round(done/tasks.length*100);
-  boxes.forEach(b=>{
-    const p=b.closest(".check-item").querySelector(".status-pill");
-    if(p)p.textContent=b.checked?"完了":"未完了";
-  });
-  els.done.textContent=done;els.statDone.textContent=done;els.statLeft.textContent=left;els.statRate.textContent=rate+"%";
-  els.bar.style.width=rate+"%";els.saveDone.textContent=done;els.saveLeft.textContent=left;els.saveRate.textContent=rate+"%";
-  const remaining=tasks.filter(t=>!checked.includes(t.id));
-  renderList(els.todo,remaining);renderList(els.saveTodo,remaining);
-}
-function updateCampaignStatus(){
-  const now=new Date();
-  document.querySelectorAll(".campaign-status").forEach(card=>{
-    const start=new Date(card.dataset.start),end=new Date(card.dataset.end),badge=card.querySelector(".status-badge");
-    badge.classList.remove("live","upcoming","closed");
-    if(now<start){badge.textContent="これから";badge.classList.add("upcoming")}
-    else if(now<=end){badge.textContent="受付中";badge.classList.add("live")}
-    else{badge.textContent="終了";badge.classList.add("closed")}
-  });
-}
-function updateCountdown(){
-  const now=new Date(),next=deadlines.find(d=>d.date>now);
-  if(!next){els.nextLabel.textContent="全キャンペーン終了";els.countdown.textContent="最新情報は公式ページを確認してください。";return}
-  const diff=next.date-now,totalMin=Math.floor(diff/60000),days=Math.floor(totalMin/1440),hours=Math.floor((totalMin-days*1440)/60),mins=totalMin%60;
-  els.nextLabel.textContent=next.label;els.countdown.textContent=`残り 約${days}日 ${hours}時間 ${mins}分`;
-}
-function init(){
-  const state=loadState();
-  boxes.forEach(b=>{
-    b.checked=!!state[b.dataset.check];
-    b.addEventListener("change",()=>{saveState();updateProgress()});
-  });
-  updateProgress();updateCampaignStatus();updateCountdown();
-  setInterval(()=>{updateCampaignStatus();updateCountdown()},60000);
-}
-document.getElementById("reset-checks").addEventListener("click",()=>{
-  if(!confirm("チェックをすべてリセットしますか？"))return;
-  boxes.forEach(b=>b.checked=false);saveState();updateProgress();
-});
-function canvasToBlob(canvas){return new Promise(resolve=>canvas.toBlob(resolve,"image/png",1))}
-async function saveCard(){
-  const btn=document.getElementById("save-image"),original=btn.textContent;
-  btn.disabled=true;btn.textContent="画像を作成中…";
-  try{
-    const target=document.getElementById("capture-card");
-    const canvas=await html2canvas(target,{backgroundColor:null,scale:Math.min(2,window.devicePixelRatio||2),useCORS:true});
-    const blob=await canvasToBlob(canvas);if(!blob)throw new Error("blob");
-    const file=new File([blob],"mazzel-touch-campaign-progress.png",{type:"image/png"});
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      try{await navigator.share({files:[file],title:"MAZZEL Touch Campaign",text:"Touch デジタルキャンペーン進捗"});return}
-      catch(e){if(e.name==="AbortError")return}
+    function loadState(){ try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||{}}catch(e){return{}} }
+    function saveState(){ localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); }
+    function statusOf(c,now=new Date()){
+      const s=new Date(c.start), e=new Date(c.end);
+      if(now<s) return "upcoming";
+      if(now>e) return "ended";
+      return "active";
     }
-    const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-  }catch(e){
-    console.error(e);alert("保存できない場合は、保存用カードをスクリーンショットしてください。");
-  }finally{
-    btn.disabled=false;btn.textContent=original;
-  }
-}
-document.getElementById("save-image").addEventListener("click",saveCard);
-init();
-</script>
+    function fmt(iso){ return new Intl.DateTimeFormat("ja-JP",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date(iso)); }
+    function escapeHtml(v){ return String(v).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
+
+    function memberScheduleHtml(c,now){
+      if(!c.members) return "";
+      const rows=c.members.map(([name,start])=>{
+        let cls="",label="公開前";
+        if(now>new Date(c.end)){cls="ended";label="終了"}
+        else if(now>=new Date(start)){cls="open";label="公開中"}
+        return `<div class="member-row"><span>${name}<br><small>${fmt(start)}〜</small></span><span class="member-state ${cls}">${label}</span></div>`;
+      }).join("");
+      return `<details class="schedule"><summary>メンバー別 Canvas 公開スケジュール</summary><div class="member-schedule">${rows}</div></details>`;
+    }
+
+    function cardHtml(c,status,now){
+      const badge={active:"NOW OPEN",upcoming:"COMING SOON",ended:"ENDED"}[status];
+      const tasks=c.tasks.map(([id,label,taskStart])=>{
+        const disabled=status==="upcoming" || (taskStart && now<new Date(taskStart));
+        const checked=!!state[id];
+        return `<div class="check-item"><input type="checkbox" id="${id}" data-id="${id}" ${checked?"checked":""} ${disabled?"disabled":""}><label for="${id}">${escapeHtml(label)}</label><span class="status-pill">${disabled?"開始前":checked?"完了":"未着手"}</span></div>`;
+      }).join("");
+      const links=c.links.map(([label,url,type])=> url ? `<a class="btn-link ${type}" href="${url}" target="_blank" rel="noopener">${label}</a>` : `<span class="btn-disabled">${label}</span>`).join("");
+      return `<article class="campaign-card ${status}" data-campaign="${c.id}">
+        <div class="card-head"><div><div class="card-no">CAMPAIGN ${c.no}</div><h3 class="card-title">${c.title}</h3></div><span class="badge ${status}">${badge}</span></div>
+        <div class="card-meta">${c.meta.map(x=>`<span>${x}</span>`).join("")}</div>
+        <div class="reward"><strong>特典：</strong>${c.reward}</div>
+        <p class="about">${c.about}</p>
+        <div class="checklist">${tasks}</div>
+        ${memberScheduleHtml(c,now)}
+        <div class="link-buttons">${links}</div>
+      </article>`;
+    }
+
+    function renderCampaigns(){
+      const now=new Date(), groups={active:[],upcoming:[],ended:[]};
+      campaigns.forEach(c=>groups[statusOf(c,now)].push(c));
+      groups.active.sort((a,b)=>new Date(a.end)-new Date(b.end));
+      groups.upcoming.sort((a,b)=>new Date(a.start)-new Date(b.start));
+      groups.ended.sort((a,b)=>new Date(b.end)-new Date(a.end));
+      ["active","upcoming","ended"].forEach(k=>{
+        els[k].innerHTML=groups[k].map(c=>cardHtml(c,k,now)).join("");
+        const sec=els["sec"+k[0].toUpperCase()+k.slice(1)], count=els["count"+k[0].toUpperCase()+k.slice(1)];
+        sec.classList.toggle("has-items",groups[k].length>0); count.textContent=groups[k].length;
+      });
+      document.getElementById("hero-active-count").textContent=`NOW OPEN ${groups.active.length}`;
+      bindChecks(); updateProgress(); updateNextMove();
+    }
+
+    function bindChecks(){
+      document.querySelectorAll("[data-id]").forEach(box=>box.addEventListener("change",()=>{state[box.dataset.id]=box.checked;saveState();updateProgress();const s=box.closest(".check-item").querySelector(".status-pill");s.textContent=box.checked?"完了":"未着手";}));
+    }
+
+    function allTasks(){ return campaigns.flatMap(c=>c.tasks.map(t=>({id:t[0],label:t[1],campaign:c,start:t[2]||c.start,end:c.end}))); }
+    function updateProgress(){
+      const tasks=allTasks(); const done=tasks.filter(t=>state[t.id]).length; const left=tasks.length-done; const rate=tasks.length?Math.round(done/tasks.length*100):0; const now=new Date();
+      document.getElementById("done-count").textContent=done;document.getElementById("total-count").textContent=tasks.length;document.getElementById("stat-done").textContent=done;document.getElementById("stat-left").textContent=left;document.getElementById("stat-rate").textContent=rate+"%";document.getElementById("bar-fill").style.width=rate+"%";
+      document.getElementById("save-done").textContent=done;document.getElementById("save-total").textContent=tasks.length;document.getElementById("save-left").textContent=left;document.getElementById("save-rate").textContent=rate+"%";document.getElementById("save-open").textContent=campaigns.filter(c=>statusOf(c,now)==="active").length;
+      const available=tasks.filter(t=>!state[t.id] && now>=new Date(t.start) && now<=new Date(t.end)); const ul=document.getElementById("todo-list");ul.innerHTML="";
+      if(!available.length){const li=document.createElement("li");li.textContent="今すぐできる未完了タスクはありません。";ul.appendChild(li)} else available.slice(0,8).forEach(t=>{const li=document.createElement("li");li.textContent=t.label;ul.appendChild(li)});
+      document.getElementById("save-date").textContent=new Intl.DateTimeFormat("ja-JP",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit"}).format(now);
+    }
+
+    function updateNextMove(){
+      const now=new Date(); const events=[];
+      campaigns.forEach(c=>{if(now<new Date(c.start))events.push({date:new Date(c.start),label:`${c.title} 開始`});if(now<new Date(c.end))events.push({date:new Date(c.end),label:`${c.title} 締切`});if(c.members)c.members.forEach(([name,start])=>{if(now<new Date(start))events.push({date:new Date(start),label:`Canvas ${name} 公開`})})});
+      events.sort((a,b)=>a.date-b.date); const next=events[0];
+      if(!next){document.getElementById("next-label").textContent="すべての予定が終了しました";document.getElementById("next-time").textContent="公式情報をご確認ください。";return}
+      const diff=next.date-now, mins=Math.max(0,Math.floor(diff/60000)), days=Math.floor(mins/1440), hours=Math.floor((mins%1440)/60), min=mins%60;
+      document.getElementById("next-label").textContent=next.label;document.getElementById("next-time").textContent=`${fmt(next.date.toISOString())} ／ あと ${days}日 ${hours}時間 ${min}分`;
+    }
+
+    document.getElementById("reset-checks").addEventListener("click",()=>{if(!confirm("チェックをすべてリセットしますか？"))return;Object.keys(state).forEach(k=>delete state[k]);saveState();renderCampaigns();});
+
+    function canvasToBlob(canvas){return new Promise(resolve=>canvas.toBlob(resolve,"image/png",1));}
+    document.getElementById("save-image").addEventListener("click",async()=>{
+      const btn=document.getElementById("save-image"), original=btn.textContent;btn.disabled=true;btn.textContent="画像を作成中…";
+      try{
+        const canvas=await html2canvas(document.getElementById("capture-card"),{backgroundColor:null,scale:Math.min(2,window.devicePixelRatio||2),useCORS:true});const blob=await canvasToBlob(canvas);if(!blob)throw new Error("blob");
+        const file=new File([blob],"mazzel-touch-campaign-progress.png",{type:"image/png"});
+        if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:"MAZZEL Touch Campaign",text:"Touch キャンペーン進捗"});return}catch(e){if(e&&e.name==="AbortError")return}}
+        const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);
+      }catch(e){alert("画像保存がうまくいかない場合は、保存用カードをスクリーンショットしてください。")}
+      finally{btn.disabled=false;btn.textContent=original}
+    });
+
+    renderCampaigns();
+    setInterval(()=>{renderCampaigns();},60000);
+  })();
+  </script>
 </body>
 </html>
