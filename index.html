@@ -332,7 +332,6 @@
     campaigns.find(c => c.id === "canvas").members.forEach(([name,start]) => {
       const key = name.toLowerCase();
       campaigns.find(c => c.id === "canvas").tasks.push([`canvas-${key}-share`,`${name}：Canvasをシェアした`,start]);
-      campaigns.find(c => c.id === "canvas").tasks.push([`canvas-${key}-ss`,`${name}：投稿のスクショを撮った`,start]);
       campaigns.find(c => c.id === "canvas").tasks.push([`canvas-${key}-entry`,`${name}：応募した`,start]);
     });
 
